@@ -1,0 +1,1 @@
+﻿Copy all files from Marvel Heroes\Data\Game to here
