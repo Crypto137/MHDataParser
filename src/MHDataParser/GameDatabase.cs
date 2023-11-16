@@ -10,6 +10,7 @@ namespace MHDataParser
         private static readonly string PakDirectory = Path.Combine(Directory.GetCurrentDirectory(), "Data");
         private static readonly string CalligraphyPath = Path.Combine(PakDirectory, "Calligraphy.sip");
         private static readonly string ResourcePath = Path.Combine(PakDirectory, "mu_cdata.sip");
+        private static readonly string LocoPath = Path.Combine(PakDirectory, "Loco");
         private static readonly string OutputDirectory = Path.Combine(Directory.GetCurrentDirectory(), "Output");
 
         private static readonly Dictionary<StringId, AssetTypeId> _assetIdToAssetTypeDict = new();
@@ -20,6 +21,8 @@ namespace MHDataParser
         private static JsonSerializerOptions _jsonOptions;
 
         public static bool IsInitialized { get; }
+
+        // Calligraphy
 
         public static DataDirectory CurveDirectory { get; }
         public static DataDirectory AssetDirectory { get; }
@@ -38,12 +41,18 @@ namespace MHDataParser
         public static Dictionary<string, Blueprint> BlueprintDict { get; } = new();
         public static Dictionary<string, PrototypeFile> PrototypeDict { get; } = new();
 
+        // Resources
+
         public static Dictionary<string, CellPrototype> CellDict { get; } = new();
         public static Dictionary<string, DistrictPrototype> DistrictDict { get; } = new();
         public static Dictionary<string, EncounterPrototype> EncounterDict { get; } = new();
         public static Dictionary<string, PropSetPrototype> PropSetDict { get; } = new();
         public static Dictionary<string, PropPrototype> PropDict { get; } = new();
         public static Dictionary<string, UIPrototype> UIDict { get; } = new();
+
+        // Localization
+
+        public static Locale[] Locales { get; }
 
         static GameDatabase()
         {
@@ -135,6 +144,27 @@ namespace MHDataParser
             Console.WriteLine($"Parsed {PropSetDict.Count} prop set prototypes");
             Console.WriteLine($"Parsed {PropDict.Count} prop prototypes");
             Console.WriteLine($"Parsed {UIDict.Count} UI prototypes");
+
+            // Load locales
+            Console.WriteLine($"Loading locales...");
+
+            List<Locale> localeList = new();
+
+            foreach (string path in Directory.GetFiles(LocoPath))
+            {
+                if (Path.GetExtension(path) != ".locale")
+                {
+                    Console.WriteLine($"Found unknown file {Path.GetFileName(path)} in the Loco directory! Skipping...");
+                    continue;
+                }
+
+                Locale locale = new(File.ReadAllBytes(path));
+                Console.WriteLine($"Detected locale: {locale.Name}");
+                localeList.Add(locale);
+            }
+
+            Locales = localeList.ToArray();
+            Console.WriteLine($"Loaded {Locales.Length} locales");
 
             // Finish game database initialization
             stopwatch.Stop();

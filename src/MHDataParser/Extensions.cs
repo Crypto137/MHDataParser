@@ -12,11 +12,17 @@ namespace MHDataParser
             return byteArray.Aggregate("", (current, b) => current + b.ToString("X2"));
         }
 
+        /// <summary>
+        /// Reads a fixed-length string preceded by its length as a 16-bit unsigned integer.
+        /// </summary>
         public static string ReadFixedString16(this BinaryReader reader)
         {
             return Encoding.UTF8.GetString(reader.ReadBytes(reader.ReadUInt16()));
         }
 
+        /// <summary>
+        /// Reads a fixed-length string preceded by its length as a 32-bit signed integer.
+        /// </summary>
         public static string ReadFixedString32(this BinaryReader reader)
         {
             return Encoding.UTF8.GetString(reader.ReadBytes(reader.ReadInt32()));
