@@ -9,6 +9,8 @@
         public string Directory { get; }
         public LocaleFlag[] Flags { get; }
 
+        public Dictionary<LocaleStringId, StringMapEntry> StringMap { get; } = new();
+
         public Locale(byte[] data)
         {
             using (MemoryStream stream = new(data))
@@ -24,6 +26,12 @@
                 for (int i = 0; i < Flags.Length; i++)
                     Flags[i] = new(reader);
             }
+        }
+
+        public void AddStringFile(StringFile stringFile)
+        {
+            foreach (var kvp in stringFile.StringMap)
+                StringMap.Add(kvp.Key, kvp.Value);
         }
     }
 

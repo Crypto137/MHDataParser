@@ -3,7 +3,7 @@
     public class StringFile
     {
         public CalligraphyHeader Header { get; }
-        public Dictionary<LocaleStringId, StringMapEntry> StringMap { get; }
+        public Dictionary<LocaleStringId, StringMapEntry> StringMap { get; } = new();
 
         public StringFile(byte[] data)
         {

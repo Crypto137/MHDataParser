@@ -52,7 +52,7 @@ namespace MHDataParser
 
         // Localization
 
-        public static Locale[] Locales { get; }
+        public static Dictionary<string, Locale> LocaleDict { get; } = new();
 
         static GameDatabase()
         {
@@ -148,23 +148,36 @@ namespace MHDataParser
             // Load locales
             Console.WriteLine($"Loading locales...");
 
-            List<Locale> localeList = new();
-
-            foreach (string path in Directory.GetFiles(LocoPath))
+            foreach (string localePath in Directory.GetFiles(LocoPath))
             {
-                if (Path.GetExtension(path) != ".locale")
+                if (Path.GetExtension(localePath) != ".locale")
                 {
-                    Console.WriteLine($"Found unknown file {Path.GetFileName(path)} in the Loco directory! Skipping...");
+                    Console.WriteLine($"Found unknown file {Path.GetFileName(localePath)} in the Loco directory! Skipping...");
                     continue;
                 }
 
-                Locale locale = new(File.ReadAllBytes(path));
+                Locale locale = new(File.ReadAllBytes(localePath));
                 Console.WriteLine($"Detected locale: {locale.Name}");
-                localeList.Add(locale);
+
+                // Load string files for this locale
+                string stringFileDir = Path.Combine(LocoPath, locale.Directory);
+
+                foreach (string stringFilePath in Directory.GetFiles(stringFileDir))
+                {
+                    if (Path.GetExtension(stringFilePath) != ".string")
+                    {
+                        Console.WriteLine($"Found unknown file {Path.GetFileName(localePath)} in the string file directory for locale {locale.Name}! Skipping...");
+                        continue;
+                    }
+
+                    StringFile stringFile = new(File.ReadAllBytes(stringFilePath));
+                    locale.AddStringFile(stringFile);
+                }
+
+                LocaleDict.Add(Path.GetFileName(localePath), locale);
             }
 
-            Locales = localeList.ToArray();
-            Console.WriteLine($"Loaded {Locales.Length} locales");
+            Console.WriteLine($"Loaded {LocaleDict.Count} locales");
 
             // Finish game database initialization
             stopwatch.Stop();
