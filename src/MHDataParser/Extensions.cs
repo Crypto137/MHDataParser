@@ -33,16 +33,16 @@ namespace MHDataParser
         /// </summary>
         public static string ReadNullTerminatedString(this BinaryReader reader)
         {
-            StringBuilder sb = new();
+            List<byte> byteList = new();
 
             while (true)
             {
                 byte b = reader.ReadByte();
                 if (b == 0x00) break;
-                sb.Append((char)b);
+                byteList.Add(b);
             }
 
-            return sb.ToString();
+            return Encoding.UTF8.GetString(byteList.ToArray());
         }
 
         /// <summary>
