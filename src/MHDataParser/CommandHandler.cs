@@ -58,7 +58,7 @@
 
             Console.WriteLine();
 
-            Console.WriteLine("export-resources: Exports parsed resource data.");
+            Console.WriteLine("export-resources: Exports parsed resource data (cells, districts, encounters, props, prop sets, and UIs.");
             Console.WriteLine("export-cells: Exports parsed cells as JSON.");
             Console.WriteLine("export-districts: Exports parsed districts as JSON.");
             Console.WriteLine("export-encounters: Exports parsed encounters as JSON.");
@@ -68,7 +68,7 @@
 
             Console.WriteLine();
 
-            Console.WriteLine("export-locales: Exports parsed locales with all strings as JSON.");
+            Console.WriteLine("export-locales: Exports parsed locales with all of their strings as JSON.");
         }
 
         private static void OnExtractPak() => GameDatabase.ExtractPak(true, true);
