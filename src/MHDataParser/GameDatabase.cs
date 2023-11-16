@@ -1,5 +1,7 @@
 ﻿using System.Diagnostics;
+using System.Text.Encodings.Web;
 using System.Text.Json;
+using System.Text.Unicode;
 using MHDataParser.FileFormats;
 using MHDataParser.JsonOutput;
 
@@ -291,21 +293,21 @@ namespace MHDataParser
         public static void ExportAssetTypes()
         {
             Console.WriteLine("Exporting asset types...");
-            SerializeDictAsJson(AssetTypeDict, true);
+            SerializeDictAsJson(AssetTypeDict, "Calligraphy");
             Console.WriteLine("Done");
         }
 
         public static void ExportBlueprints()
         {
             Console.WriteLine("Exporting blueprints...");
-            SerializeDictAsJson(BlueprintDict, true);
+            SerializeDictAsJson(BlueprintDict, "Calligraphy");
             Console.WriteLine("Done");
         }
 
         public static void ExportPrototypes()
         {
             Console.WriteLine("Exporting prototypes...");
-            SerializeDictAsJson(PrototypeDict, true);
+            SerializeDictAsJson(PrototypeDict, "Calligraphy");
             Console.WriteLine("Done");
         }
 
@@ -351,14 +353,21 @@ namespace MHDataParser
             Console.WriteLine("Done");
         }
 
-        private static void SerializeDictAsJson<T>(Dictionary<string, T> dict, bool addCalligraphyPrefix = false)
+        public static void ExportLocales()
+        {
+            Console.WriteLine("Exporting locales...");
+            SerializeDictAsJson(LocaleDict, "Loco");
+            Console.WriteLine("Done");
+        }
+
+        private static void SerializeDictAsJson<T>(Dictionary<string, T> dict, string prefix = "")
         {
             if (_jsonOptions == null) InitializeJsonOptions();
 
             foreach (var kvp in dict)
             {
-                string path = addCalligraphyPrefix
-                    ? Path.Combine(OutputDirectory, "Parsed", "Calligraphy", $"{kvp.Key}.json")
+                string path = prefix != ""
+                    ? Path.Combine(OutputDirectory, "Parsed", prefix, $"{kvp.Key}.json")
                     : Path.Combine(OutputDirectory, "Parsed", $"{kvp.Key}.json");
                 string dir = Path.GetDirectoryName(path);
                 if (Directory.Exists(dir) == false) Directory.CreateDirectory(dir);
@@ -372,7 +381,8 @@ namespace MHDataParser
             _jsonOptions = new()
             {
                 WriteIndented = true,
-                MaxDepth = 128          // 64 is not enough for prototypes
+                MaxDepth = 128,                                         // 64 is not enough for prototypes
+                Encoder = JavaScriptEncoder.Create(UnicodeRanges.All)   // This is needed to export localized strings correctly
             };
 
             _jsonOptions.Converters.Add(new BlueprintConverter());

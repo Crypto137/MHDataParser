@@ -29,6 +29,8 @@
                 case "export-prop-sets":        OnExportPropSets();     break;
                 case "export-uis":              OnExportUIs();          break;
 
+                case "export-locales":          OnExportLocales();      break;
+
                 default: Console.WriteLine($"Command '{command}' does not exist"); break;
             }
         }
@@ -63,6 +65,10 @@
             Console.WriteLine("export-props: Exports parsed props as JSON.");
             Console.WriteLine("export-prop-sets: Exports parsed prop sets as JSON.");
             Console.WriteLine("export-uis: Exports parsed UIs as JSON.");
+
+            Console.WriteLine();
+
+            Console.WriteLine("export-locales: Exports parsed locales with all strings as JSON.");
         }
 
         private static void OnExtractPak() => GameDatabase.ExtractPak(true, true);
@@ -106,5 +112,7 @@
         private static void OnExportProps() => GameDatabase.ExportProps();
         private static void OnExportPropSets() => GameDatabase.ExportPropSets();
         private static void OnExportUIs() => GameDatabase.ExportUIs();
+
+        private static void OnExportLocales() => GameDatabase.ExportLocales();
     }
 }
