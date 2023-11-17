@@ -2,7 +2,7 @@
 
 MHDataParser is a parser for various data files used by Marvel Heroes. It loads data files used by the client and can output some or all of them as human-readable TSV/JSON files (depending on the format).
 
-This tool has been tested mainly with version `1.52.0.1700`.
+This tool has been tested mainly with version `1.52.0.1700`, but it should be able to handle other 2016-2017 versions as well.
 
 ## Usage
 

@@ -12,9 +12,16 @@
             {
                 Header = new(reader);
 
-                UIPanels = new UIPanelPrototype[reader.ReadUInt32()];
-                for (int i = 0; i < UIPanels.Length; i++)
-                    UIPanels[i] = ReadUIPanelPrototype(reader);
+                try
+                {
+                    UIPanels = new UIPanelPrototype[reader.ReadUInt32()];
+                    for (int i = 0; i < UIPanels.Length; i++)
+                        UIPanels[i] = ReadUIPanelPrototype(reader);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine($"Failed to parse UI prototype: {e.Message}");
+                }
             }
         }
 
