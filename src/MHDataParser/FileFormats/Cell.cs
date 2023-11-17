@@ -17,7 +17,7 @@ namespace MHDataParser.FileFormats
         public NaviPatchSourcePrototype NaviPatchSource { get; }
         public byte IsOffsetInMapFile { get; }
         public CellHeightMap HeightMap { get; }
-        public ulong[] HotspotPrototypes { get; }
+        public PrototypeGuid[] HotspotPrototypes { get; }
 
         public CellPrototype(byte[] data)
         {
@@ -44,9 +44,9 @@ namespace MHDataParser.FileFormats
                 IsOffsetInMapFile = reader.ReadByte();
                 HeightMap = new(reader);
 
-                HotspotPrototypes = new ulong[reader.ReadUInt32()];
+                HotspotPrototypes = new PrototypeGuid[reader.ReadUInt32()];
                 for (int i = 0; i < HotspotPrototypes.Length; i++)
-                    HotspotPrototypes[i] = reader.ReadUInt64();
+                    HotspotPrototypes[i] = (PrototypeGuid)reader.ReadUInt64();
             }
         }
 
