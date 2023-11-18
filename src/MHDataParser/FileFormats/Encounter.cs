@@ -6,7 +6,7 @@ namespace MHDataParser.FileFormats
     public class EncounterPrototype
     {
         public ResourceHeader Header { get; }
-        public ulong PopulationMarkerGuid { get; }
+        public PrototypeGuid PopulationMarkerGuid { get; }
         public string ClientMap { get; }
         public MarkerPrototype[] MarkerSet { get; }
         public NaviPatchSourcePrototype NaviPatchSource { get; }
@@ -17,7 +17,7 @@ namespace MHDataParser.FileFormats
             using (BinaryReader reader = new(stream))
             {
                 Header = new(reader);
-                PopulationMarkerGuid = reader.ReadUInt64();
+                PopulationMarkerGuid = (PrototypeGuid)reader.ReadUInt64();
                 ClientMap = reader.ReadFixedString32();
 
                 MarkerSet = new MarkerPrototype[reader.ReadUInt32()];

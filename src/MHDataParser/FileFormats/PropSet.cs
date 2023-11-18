@@ -26,7 +26,7 @@
     {
         public ResourcePrototypeHash ProtoNameHash { get; }
         public PropSetTypeEntryPrototype[] PropShapeEntries { get; }
-        public ulong PropType { get; }
+        public PrototypeGuid PropType { get; }
 
         public PropSetTypeListPrototype(BinaryReader reader)
         {
@@ -36,7 +36,7 @@
             for (int i = 0; i < PropShapeEntries.Length; i++)
                 PropShapeEntries[i] = new(reader);
 
-            PropType = reader.ReadUInt64();
+            PropType = (PrototypeGuid)reader.ReadUInt64();
         }
     }
 
