@@ -1,4 +1,5 @@
-﻿using MHDataParser.Prototypes.Markers;
+﻿using MHDataParser.Prototypes;
+using MHDataParser.Prototypes.Markers;
 
 namespace MHDataParser.FileFormats
 {
@@ -6,8 +7,8 @@ namespace MHDataParser.FileFormats
     {
         public ResourceHeader Header { get; }
         public ResourceMarkerPrototype[] CellMarkerSet { get; }
-        public MarkerPrototype[] MarkerSet { get; }                 // size is always 0 in all of our files
-        public PathNodeSetPrototype[] PathCollection { get; }       // PathCollectionPrototype
+        public MarkerPrototype[] MarkerSet { get; }                 // Size is always 0 in all of our files
+        public PathCollectionPrototype PathCollection { get; }
 
         public DistrictPrototype(byte[] data)
         {
@@ -24,9 +25,7 @@ namespace MHDataParser.FileFormats
                 for (int i = 0; i < MarkerSet.Length; i++)
                     MarkerSet[i] = ReadMarkerPrototype(reader);
 
-                PathCollection = new PathNodeSetPrototype[reader.ReadUInt32()];
-                for (int i = 0; i < PathCollection.Length; i++)
-                    PathCollection[i] = new(reader);
+                PathCollection = new(reader);
             }
         }
 

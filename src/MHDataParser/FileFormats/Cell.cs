@@ -6,7 +6,7 @@ namespace MHDataParser.FileFormats
     public class CellPrototype
     {
         public ResourceHeader Header { get; }
-        public Aabb Boundbox { get; }
+        public Aabb BoundingBox { get; }
         public uint Type { get; }
         public uint Walls { get; }
         public uint FillerEdges { get; }
@@ -25,7 +25,7 @@ namespace MHDataParser.FileFormats
             using (BinaryReader reader = new(stream))
             {
                 Header = new(reader);
-                Boundbox = new(reader);
+                BoundingBox = new(reader);
                 Type = reader.ReadUInt32();
                 Walls = reader.ReadUInt32();
                 FillerEdges = reader.ReadUInt32();
