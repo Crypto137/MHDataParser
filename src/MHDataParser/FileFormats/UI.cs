@@ -33,6 +33,7 @@ namespace MHDataParser.FileFormats
 
     public class UIPanelPrototype
     {
+        [JsonConverter(typeof(JsonStringEnumConverter))]
         public ResourcePrototypeHash ProtoNameHash { get; protected set; }
         public string PanelName { get; protected set; }
         public string TargetName { get; protected set; }

@@ -1,4 +1,6 @@
-﻿namespace MHDataParser.FileFormats
+﻿using System.Text.Json.Serialization;
+
+namespace MHDataParser.FileFormats
 {
     public class PropSetPrototype
     {
@@ -24,6 +26,7 @@
 
     public class PropSetTypeListPrototype
     {
+        [JsonConverter(typeof(JsonStringEnumConverter))]
         public ResourcePrototypeHash ProtoNameHash { get; }
         public PropSetTypeEntryPrototype[] PropShapeEntries { get; }
         public PrototypeGuid PropType { get; }
@@ -42,6 +45,7 @@
 
     public class PropSetTypeEntryPrototype
     {
+        [JsonConverter(typeof(JsonStringEnumConverter))]
         public ResourcePrototypeHash ProtoNameHash { get; }
         public string NameId { get; }
         public string ResourcePackage { get; }

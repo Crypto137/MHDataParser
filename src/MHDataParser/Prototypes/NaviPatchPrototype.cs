@@ -1,4 +1,5 @@
-﻿using MHDataParser.FileFormats;
+﻿using System.Text.Json.Serialization;
+using MHDataParser.FileFormats;
 
 namespace MHDataParser.Prototypes
 {
@@ -45,7 +46,8 @@ namespace MHDataParser.Prototypes
 
     public class NaviPatchEdgePrototype
     {
-        public uint ProtoNameHash { get; }
+        [JsonConverter(typeof(JsonStringEnumConverter))]
+        public ResourcePrototypeHash ProtoNameHash { get; }
         public uint Index0 { get; }
         public uint Index1 { get; }
         public NaviContentFlag[] Flags0 { get; }
@@ -53,7 +55,7 @@ namespace MHDataParser.Prototypes
 
         public NaviPatchEdgePrototype(BinaryReader reader)
         {
-            ProtoNameHash = reader.ReadUInt32();
+            ProtoNameHash = (ResourcePrototypeHash)reader.ReadUInt32();
             Index0 = reader.ReadUInt32();
             Index1 = reader.ReadUInt32();
 

@@ -1,4 +1,5 @@
-﻿using MHDataParser.FileFormats;
+﻿using System.Text.Json.Serialization;
+using MHDataParser.FileFormats;
 
 namespace MHDataParser.Prototypes
 {
@@ -16,6 +17,7 @@ namespace MHDataParser.Prototypes
 
     public class PathNodeSetPrototype
     {
+        [JsonConverter(typeof(JsonStringEnumConverter))]
         public ResourcePrototypeHash ProtoNameHash { get; }
         public ushort Group { get; }
         public PathNodePrototype[] PathNodes { get; }
@@ -36,6 +38,7 @@ namespace MHDataParser.Prototypes
 
     public class PathNodePrototype
     {
+        [JsonConverter(typeof(JsonStringEnumConverter))]
         public ResourcePrototypeHash ProtoNameHash { get; }
         public Vector3 Position { get; }
 

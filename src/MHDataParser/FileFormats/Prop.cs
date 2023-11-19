@@ -1,4 +1,5 @@
-﻿using MHDataParser.Prototypes;
+﻿using System.Text.Json.Serialization;
+using MHDataParser.Prototypes;
 using MHDataParser.Prototypes.Markers;
 
 namespace MHDataParser.FileFormats
@@ -24,6 +25,7 @@ namespace MHDataParser.FileFormats
 
     public class ProceduralPropGroupPrototype
     {
+        [JsonConverter(typeof(JsonStringEnumConverter))]
         public ResourcePrototypeHash ProtoNameHash { get; }
         public string NameId { get; }
         public string PrefabPath { get; }

@@ -1,4 +1,5 @@
-﻿using MHDataParser.FileFormats;
+﻿using System.Text.Json.Serialization;
+using MHDataParser.FileFormats;
 using MHDataParser.Prototypes;
 
 namespace MHDataParser.JsonOutput
@@ -17,7 +18,8 @@ namespace MHDataParser.JsonOutput
 
     public class NaviPatchEdgePrototypeJson
     {
-        public uint ProtoNameHash { get; }
+        [JsonConverter(typeof(JsonStringEnumConverter))]
+        public ResourcePrototypeHash ProtoNameHash { get; }
         public uint Index0 { get; }
         public uint Index1 { get; }
         public string Flags0 { get; }
