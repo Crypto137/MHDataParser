@@ -49,7 +49,7 @@ namespace MHDataParser
         public static Dictionary<string, DistrictPrototype> DistrictDict { get; } = new();
         public static Dictionary<string, EncounterPrototype> EncounterDict { get; } = new();
         public static Dictionary<string, PropSetPrototype> PropSetDict { get; } = new();
-        public static Dictionary<string, PropPrototype> PropDict { get; } = new();
+        public static Dictionary<string, PropPackagePrototype> PropDict { get; } = new();
         public static Dictionary<string, UIPrototype> UIDict { get; } = new();
 
         // Localization

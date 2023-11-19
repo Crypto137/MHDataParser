@@ -1,5 +1,17 @@
-﻿namespace MHDataParser.FileFormats
+﻿using System.Text.Json.Serialization;
+
+namespace MHDataParser.FileFormats
 {
+    public enum PanelScaleMode
+    {
+        None,
+        XStretch,
+        YOnly,
+        XOnly,
+        Both,
+        ScreenSize
+    }
+
     public class UIPrototype
     {
         public ResourceHeader Header { get; }
@@ -12,40 +24,10 @@
             {
                 Header = new(reader);
 
-                try
-                {
-                    UIPanels = new UIPanelPrototype[reader.ReadUInt32()];
-                    for (int i = 0; i < UIPanels.Length; i++)
-                        UIPanels[i] = ReadUIPanelPrototype(reader);
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine($"Failed to parse UI prototype: {e.Message}");
-                }
+                UIPanels = new UIPanelPrototype[reader.ReadUInt32()];
+                for (int i = 0; i < UIPanels.Length; i++)
+                    UIPanels[i] = UIPanelPrototype.ReadFromBinaryReader(reader);
             }
-        }
-
-        private UIPanelPrototype ReadUIPanelPrototype(BinaryReader reader)
-        {
-            UIPanelPrototype panelPrototype;
-            ResourcePrototypeHash hash = (ResourcePrototypeHash)reader.ReadUInt32();
-
-            switch (hash)
-            {
-                case ResourcePrototypeHash.StretchedPanelPrototype:
-                    panelPrototype = new StretchedPanelPrototype(reader);
-                    break;
-                case ResourcePrototypeHash.AnchoredPanelPrototype:
-                    panelPrototype = new AnchoredPanelPrototype(reader);
-                    break;
-                case ResourcePrototypeHash.None:
-                    panelPrototype = null;
-                    break;
-                default:
-                    throw new($"Unknown ResourcePrototypeHash {(uint)hash}");   // Throw an exception if there's a hash for a type we didn't expect
-            }
-
-            return panelPrototype;
         }
     }
 
@@ -54,7 +36,8 @@
         public ResourcePrototypeHash ProtoNameHash { get; protected set; }
         public string PanelName { get; protected set; }
         public string TargetName { get; protected set; }
-        public uint ScaleMode { get; protected set; }
+        [JsonConverter(typeof(JsonStringEnumConverter))]
+        public PanelScaleMode ScaleMode { get; protected set; }
         public UIPanelPrototype Children { get; protected set; }
         public string WidgetClass { get; protected set; }
         public string SwfName { get; protected set; }
@@ -66,12 +49,29 @@
         public byte UseNewPlacementSystem { get; protected set; }
         public byte KeepLoaded { get; protected set; }
 
-        protected void ReadParentPanelFields(BinaryReader reader)
+        public static UIPanelPrototype ReadFromBinaryReader(BinaryReader reader)
+        {
+            ResourcePrototypeHash hash = (ResourcePrototypeHash)reader.ReadUInt32();
+
+            switch (hash)
+            {
+                case ResourcePrototypeHash.StretchedPanelPrototype:
+                    return new StretchedPanelPrototype(reader);
+                case ResourcePrototypeHash.AnchoredPanelPrototype:
+                    return new AnchoredPanelPrototype(reader);
+                case ResourcePrototypeHash.None:
+                    return null;
+                default:
+                    throw new($"Unknown ResourcePrototypeHash {(uint)hash}");   // Throw an exception if there's a hash for a type we didn't expect
+            }
+        }
+
+        protected void ReadCommonPanelFields(BinaryReader reader)
         {
             PanelName = reader.ReadFixedString32();
             TargetName = reader.ReadFixedString32();
-            ScaleMode = reader.ReadUInt32();
-            Children = ReadUIPanelPrototype(reader);
+            ScaleMode = (PanelScaleMode)reader.ReadUInt32();
+            Children = ReadFromBinaryReader(reader);
             WidgetClass = reader.ReadFixedString32();
             SwfName = reader.ReadFixedString32();
             OpenOnStart = reader.ReadByte();
@@ -81,29 +81,6 @@
             EntityInteractPanel = reader.ReadByte();
             UseNewPlacementSystem = reader.ReadByte();
             KeepLoaded = reader.ReadByte();
-        }
-
-        protected UIPanelPrototype ReadUIPanelPrototype(BinaryReader reader)
-        {
-            UIPanelPrototype panelPrototype;
-            ResourcePrototypeHash hash = (ResourcePrototypeHash)reader.ReadUInt32();
-
-            switch (hash)
-            {
-                case ResourcePrototypeHash.StretchedPanelPrototype:
-                    panelPrototype = new StretchedPanelPrototype(reader);
-                    break;
-                case ResourcePrototypeHash.AnchoredPanelPrototype:
-                    panelPrototype = new AnchoredPanelPrototype(reader);
-                    break;
-                case ResourcePrototypeHash.None:
-                    panelPrototype = null;
-                    break;
-                default:
-                    throw new($"Unknown ResourcePrototypeHash {(uint)hash}");   // Throw an exception if there's a hash for a type we didn't expect
-            }
-
-            return panelPrototype;
         }
     }
 
@@ -127,7 +104,7 @@
             BR_X_TargetName = reader.ReadFixedString32();
             BR_Y_TargetName = reader.ReadFixedString32();
 
-            ReadParentPanelFields(reader);
+            ReadCommonPanelFields(reader);
         }
     }
 
@@ -151,7 +128,7 @@
             OuterEdgePin = new(reader);
             NewSourceAttachmentPin = new(reader);
 
-            ReadParentPanelFields(reader);
+            ReadCommonPanelFields(reader);
         }
     }
 }

@@ -28,8 +28,8 @@ namespace MHDataParser.JsonOutput
             ProtoNameHash = prototype.ProtoNameHash;
             Index0 = prototype.Index0;
             Index1 = prototype.Index1;
-            Flags0 = prototype.Flags0.Select(flag => (byte)flag).ToArray().ToHexString();
-            Flags1 = prototype.Flags1.Select(flag => (byte)flag).ToArray().ToHexString();
+            Flags0 = string.Join("|", prototype.Flags0);
+            Flags1 = string.Join("|", prototype.Flags1);
         }
     }
 }

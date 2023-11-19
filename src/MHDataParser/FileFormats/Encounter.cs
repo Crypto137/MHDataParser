@@ -8,7 +8,7 @@ namespace MHDataParser.FileFormats
         public ResourceHeader Header { get; }
         public PrototypeGuid PopulationMarkerGuid { get; }
         public string ClientMap { get; }
-        public MarkerPrototype[] MarkerSet { get; }
+        public MarkerSetPrototype MarkerSet { get; }
         public NaviPatchSourcePrototype NaviPatchSource { get; }
 
         public EncounterPrototype(byte[] data)
@@ -19,45 +19,9 @@ namespace MHDataParser.FileFormats
                 Header = new(reader);
                 PopulationMarkerGuid = (PrototypeGuid)reader.ReadUInt64();
                 ClientMap = reader.ReadFixedString32();
-
-                MarkerSet = new MarkerPrototype[reader.ReadUInt32()];
-                for (int i = 0; i < MarkerSet.Length; i++)
-                    MarkerSet[i] = ReadMarkerPrototype(reader);
-
+                MarkerSet = new(reader);
                 NaviPatchSource = new(reader);
             }
-        }
-
-        private MarkerPrototype ReadMarkerPrototype(BinaryReader reader)
-        {
-            MarkerPrototype markerPrototype;
-            ResourcePrototypeHash hash = (ResourcePrototypeHash)reader.ReadUInt32();
-
-            switch (hash)
-            {
-                case ResourcePrototypeHash.CellConnectorMarkerPrototype:
-                    markerPrototype = new CellConnectorMarkerPrototype(reader);
-                    break;
-                case ResourcePrototypeHash.DotCornerMarkerPrototype:
-                    markerPrototype = new DotCornerMarkerPrototype(reader);
-                    break;
-                case ResourcePrototypeHash.EntityMarkerPrototype:
-                    markerPrototype = new EntityMarkerPrototype(reader);
-                    break;
-                case ResourcePrototypeHash.RoadConnectionMarkerPrototype:
-                    markerPrototype = new RoadConnectionMarkerPrototype(reader);
-                    break;
-                case ResourcePrototypeHash.ResourceMarkerPrototype:
-                    markerPrototype = new ResourceMarkerPrototype(reader);
-                    break;
-                case ResourcePrototypeHash.UnrealPropMarkerPrototype:
-                    markerPrototype = new UnrealPropMarkerPrototype(reader);
-                    break;
-                default:
-                    throw new($"Unknown ResourcePrototypeHash {(uint)hash}");   // Throw an exception if there's a hash for a type we didn't expect
-            }
-
-            return markerPrototype;
         }
     }
 }
