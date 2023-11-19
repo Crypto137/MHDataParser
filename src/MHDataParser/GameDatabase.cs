@@ -342,7 +342,7 @@ namespace MHDataParser
         public static void ExportPropSets()
         {
             Console.WriteLine("Exporting prop sets...");
-            SerializeDictAsJson(PrototypeDict);
+            SerializeDictAsJson(PropSetDict);
             Console.WriteLine("Done");
         }
 
