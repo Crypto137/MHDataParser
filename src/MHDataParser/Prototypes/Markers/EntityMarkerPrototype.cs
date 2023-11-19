@@ -11,16 +11,10 @@ namespace MHDataParser.Prototypes.Markers
         public string LastKnownEntityName { get; }
         [JsonPropertyOrder(4)]
         public PrototypeGuid Modifier1Guid { get; }
-        [JsonPropertyOrder(5)]
-        public string Modifier1Text { get; }
         [JsonPropertyOrder(6)]
         public PrototypeGuid Modifier2Guid { get; }
-        [JsonPropertyOrder(7)]
-        public string Modifier2Text { get; }
         [JsonPropertyOrder(8)]
         public PrototypeGuid Modifier3Guid { get; }
-        [JsonPropertyOrder(9)]
-        public string Modifier3Text { get; }
         [JsonPropertyOrder(10)]
         public uint EncounterSpawnPhase { get; }
         [JsonPropertyOrder(11)]
@@ -39,11 +33,11 @@ namespace MHDataParser.Prototypes.Markers
             EntityGuid = (PrototypeGuid)reader.ReadUInt64();
             LastKnownEntityName = reader.ReadFixedString32();
             Modifier1Guid = (PrototypeGuid)reader.ReadUInt64();
-            if (Modifier1Guid != PrototypeGuid.Invalid) Modifier1Text = reader.ReadFixedString32();
+            // eFlagDontCook Modifier1Text = reader.ReadFixedString32();
             Modifier2Guid = (PrototypeGuid)reader.ReadUInt64();
-            if (Modifier2Guid != PrototypeGuid.Invalid) Modifier2Text = reader.ReadFixedString32();
+            // eFlagDontCook Modifier2Text = reader.ReadFixedString32();
             Modifier3Guid = (PrototypeGuid)reader.ReadUInt64();
-            if (Modifier3Guid != PrototypeGuid.Invalid) Modifier3Text = reader.ReadFixedString32();
+            // eFlagDontCook Modifier3Text = reader.ReadFixedString32();
             EncounterSpawnPhase = reader.ReadUInt32();
             OverrideSnapToFloor = reader.ReadByte();
             OverrideSnapToFloorValue = reader.ReadByte();

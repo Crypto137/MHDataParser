@@ -2,7 +2,7 @@
 {
     public class NaviPatchSourcePrototype
     {
-        // PatchFragments
+        // eFlagDontCook PatchFragments
         public uint NaviPatchCrc { get; }
         public NaviPatchPrototype NaviPatch { get; }
         public NaviPatchPrototype PropPatch { get; }
