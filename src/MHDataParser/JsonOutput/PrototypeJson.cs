@@ -83,22 +83,22 @@ namespace MHDataParser.JsonOutput
 
             switch (field.Type)
             {
-                case CalligraphyValueType.Asset:
+                case CalligraphyBaseType.Asset:
                     var assetId = (StringId)field.Value;
                     string assetName = GameDatabase.GetAssetName(assetId);
                     string assetTypeName = GameDatabase.GetAssetTypeName(GameDatabase.GetAssetTypeId(assetId));
                     Value = $"{assetName} ({assetTypeName})";
                     break;
-                case CalligraphyValueType.Curve:
+                case CalligraphyBaseType.Curve:
                     Value = GameDatabase.GetCurveName((CurveId)field.Value);
                     break;
-                case CalligraphyValueType.Prototype:
+                case CalligraphyBaseType.Prototype:
                     Value = GameDatabase.GetPrototypeName((PrototypeId)field.Value);
                     break;
-                case CalligraphyValueType.RHStruct:
+                case CalligraphyBaseType.RHStruct:
                     Value = new PrototypeJson((Prototype)field.Value);
                     break;
-                case CalligraphyValueType.Type:
+                case CalligraphyBaseType.Type:
                     Value = GameDatabase.GetAssetTypeName((AssetTypeId)field.Value);
                     break;
                 default:
@@ -124,22 +124,22 @@ namespace MHDataParser.JsonOutput
             {
                 switch (field.Type)
                 {
-                    case CalligraphyValueType.Asset:
+                    case CalligraphyBaseType.Asset:
                         var assetId = (StringId)field.Values[i];
                         string assetName = GameDatabase.GetAssetName(assetId);
                         string assetTypeName = GameDatabase.GetAssetTypeName(GameDatabase.GetAssetTypeId(assetId));
                         Values[i] = $"{assetName} ({assetTypeName})";
                         break;
-                    case CalligraphyValueType.Curve:
+                    case CalligraphyBaseType.Curve:
                         Values[i] = GameDatabase.GetCurveName((CurveId)field.Values[i]);
                         break;
-                    case CalligraphyValueType.Prototype:
+                    case CalligraphyBaseType.Prototype:
                         Values[i] = GameDatabase.GetPrototypeName((PrototypeId)field.Values[i]);
                         break;
-                    case CalligraphyValueType.RHStruct:
+                    case CalligraphyBaseType.RHStruct:
                         Values[i] = new PrototypeJson((Prototype)field.Values[i]);
                         break;
-                    case CalligraphyValueType.Type:
+                    case CalligraphyBaseType.Type:
                         Values[i] = GameDatabase.GetAssetTypeName((AssetTypeId)field.Values[i]);
                         break;
                     default:

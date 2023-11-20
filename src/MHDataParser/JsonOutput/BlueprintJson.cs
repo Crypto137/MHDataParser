@@ -32,12 +32,12 @@ namespace MHDataParser.JsonOutput
     public class BlueprintReferenceJson
     {
         public string Name { get; }
-        public byte Flags { get; }
+        public byte NumOfCopies { get; }
 
         public BlueprintReferenceJson(BlueprintReference reference)
         {
-            Name = GameDatabase.GetPrototypeName(reference.Id);
-            Flags = reference.Flags;
+            Name = GameDatabase.GetPrototypeName(reference.BlueprintId);
+            NumOfCopies = reference.NumOfCopies;
         }
     }
 
@@ -45,30 +45,30 @@ namespace MHDataParser.JsonOutput
     {
         public ulong FieldId { get; }
         public string FieldName { get; }
-        public string ValueType { get; }
-        public string ContainerType { get; }
+        public string BaseType { get; }
+        public string StructureType { get; }
         public string Subtype { get; }
 
         public BlueprintMemberJson(BlueprintMember member)
         {
             FieldId = (ulong)member.FieldId;
             FieldName = member.FieldName;
-            ValueType = member.ValueType.ToString();
-            ContainerType = member.ContainerType.ToString();
+            BaseType = member.BaseType.ToString();
+            StructureType = member.StructureType.ToString();
 
-            switch (member.ValueType)
+            switch (member.BaseType)
             {
-                // Only these types have subtypes
-                case CalligraphyValueType.Asset:
+                // Only these base types have subtypes
+                case CalligraphyBaseType.Asset:
                     Subtype = GameDatabase.GetAssetTypeName((AssetTypeId)member.Subtype);
                     break;
 
-                case CalligraphyValueType.Curve:
+                case CalligraphyBaseType.Curve:
                     Subtype = GameDatabase.GetCurveName((CurveId)member.Subtype);
                     break;
 
-                case CalligraphyValueType.Prototype:
-                case CalligraphyValueType.RHStruct:
+                case CalligraphyBaseType.Prototype:
+                case CalligraphyBaseType.RHStruct:
                     Subtype = GameDatabase.GetPrototypeName((PrototypeId)member.Subtype);
                     break;
             }
