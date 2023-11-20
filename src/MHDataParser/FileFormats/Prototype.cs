@@ -7,10 +7,10 @@
         [Flags]
         private enum PrototypeDataDesc : byte
         {
-            None = 0,
-            ReferenceExists = 1,
-            DataExists = 2,
-            PolymorphicData = 4
+            None            = 0,
+            ReferenceExists = 1 << 0,
+            DataExists      = 1 << 1,
+            PolymorphicData = 1 << 2
         }
 
         public bool ReferenceExists { get; }
