@@ -381,7 +381,7 @@ namespace MHDataParser
             _jsonOptions = new()
             {
                 WriteIndented = true,
-                MaxDepth = 128,                                         // 64 is not enough for prototypes
+                MaxDepth = 256,                                         // 64 is not enough for prototypes
                 Encoder = JavaScriptEncoder.Create(UnicodeRanges.All)   // This is needed to export localized strings correctly
             };
 
