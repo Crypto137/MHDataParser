@@ -24,39 +24,39 @@ namespace MHDataParser.FileFormats
     // Bit field enums
 
     [Flags]
-    public enum CurveRecordFlags
+    public enum CurveRecordFlags : byte
     {
         None        = 0
         // Although curve records do have a field for flags, it's 0 for all records
     }
 
     [Flags]
-    public enum AssetTypeRecordFlags
+    public enum AssetTypeRecordFlags : byte
     {
         None        = 0,
-        Protected   = 1 << 0    // AssetDirectory::AssetTypeIsProtected
+        Protected   = 1 << 0    // AssetDirectory::AssetTypeIsProtected()
     }
 
     [Flags]
-    public enum AssetValueFlags
+    public enum AssetValueFlags : byte
     {
         None        = 0,
-        Protected   = 1 << 0    // AssetType::AssetIsProtected
+        Protected   = 1 << 0    // AssetType::AssetIsProtected()
     }
 
     [Flags]
-    public enum BlueprintRecordFlags
+    public enum BlueprintRecordFlags : byte
     {
         None        = 0,
-        Protected   = 1 << 0    // DataDirectory::BlueprintIsProtected
+        Protected   = 1 << 0    // DataDirectory::BlueprintIsProtected()
     }
 
     [Flags]
-    public enum PrototypeRecordFlags
+    public enum PrototypeRecordFlags : byte
     {
         None        = 0,
-        Abstract    = 1 << 0,   // DataDirectory::PrototypeIsAbstract
-        Protected   = 1 << 1    // DataDirectory::PrototypeIsProtected
+        Abstract    = 1 << 0,   // DataDirectory::PrototypeIsAbstract()
+        Protected   = 1 << 1    // DataDirectory::PrototypeIsProtected()
     }
 
     /// <summary>
