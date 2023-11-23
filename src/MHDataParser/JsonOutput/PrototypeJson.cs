@@ -57,7 +57,7 @@ namespace MHDataParser.JsonOutput
 
         public PrototypeFieldGroupJson(PrototypeFieldGroup entry)
         {
-            DeclaringBlueprint = GameDatabase.GetPrototypeName(entry.DeclaringBlueprintId);
+            DeclaringBlueprint = GameDatabase.GetBlueprintName(entry.DeclaringBlueprintId);
             BlueprintCopyNumber = entry.BlueprintCopyNumber;
 
             SimpleFields = new PrototypeSimpleFieldJson[entry.SimpleFields.Length];

@@ -31,12 +31,12 @@ namespace MHDataParser.JsonOutput
 
     public class BlueprintReferenceJson
     {
-        public string Name { get; }
+        public string Blueprint { get; }
         public byte NumOfCopies { get; }
 
         public BlueprintReferenceJson(BlueprintReference reference)
         {
-            Name = GameDatabase.GetPrototypeName(reference.BlueprintId);
+            Blueprint = GameDatabase.GetBlueprintName(reference.BlueprintId);
             NumOfCopies = reference.NumOfCopies;
         }
     }

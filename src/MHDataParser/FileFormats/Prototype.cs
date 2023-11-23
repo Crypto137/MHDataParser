@@ -50,8 +50,6 @@
         public PrototypeDataHeader Header { get; }
         public PrototypeFieldGroup[] FieldGroups { get; }
 
-        public Prototype() { }
-
         public Prototype(BinaryReader reader)
         {
             Header = new(reader);
@@ -65,14 +63,14 @@
 
     public class PrototypeFieldGroup
     {
-        public PrototypeId DeclaringBlueprintId { get; }
+        public BlueprintId DeclaringBlueprintId { get; }
         public byte BlueprintCopyNumber { get; }
         public PrototypeSimpleField[] SimpleFields { get; }
         public PrototypeListField[] ListFields { get; }
 
         public PrototypeFieldGroup(BinaryReader reader)
         {
-            DeclaringBlueprintId = (PrototypeId)reader.ReadUInt64();
+            DeclaringBlueprintId = (BlueprintId)reader.ReadUInt64();
             BlueprintCopyNumber = reader.ReadByte();
 
             SimpleFields = new PrototypeSimpleField[reader.ReadUInt16()];

@@ -36,12 +36,12 @@
 
     public readonly struct BlueprintReference
     {
-        public PrototypeId BlueprintId { get; }
+        public BlueprintId BlueprintId { get; }
         public byte NumOfCopies { get; }
 
         public BlueprintReference(BinaryReader reader)
         {
-            BlueprintId = (PrototypeId)reader.ReadUInt64();
+            BlueprintId = (BlueprintId)reader.ReadUInt64();
             NumOfCopies = reader.ReadByte();
         }
     }
