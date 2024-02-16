@@ -4,6 +4,8 @@ MHDataParser is a parser for various data files used by Marvel Heroes. It loads 
 
 This tool has been tested mainly with version `1.52.0.1700`, but it should be able to handle other 2016-2017 versions as well.
 
+Included also are `.hexpat` patterns for all file types that can be used with [ImHex](https://github.com/WerWolv/ImHex).
+
 ## Usage
 
 1. Make sure you have [.NET 6](https://dotnet.microsoft.com/en-us/download/dotnet/6.0) installed.
