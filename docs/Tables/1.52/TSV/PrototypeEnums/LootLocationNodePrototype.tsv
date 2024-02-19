@@ -1,0 +1,16 @@
+Index	PrototypeId	Name
+0	0	
+1	1495410874785602281	Loot/LocationMethods/Prototypes/Tables/InPlaceSpawnTable.prototype
+2	3190343517325301556	Loot/LocationMethods/ZAbstract/LootLocationNode.defaults
+3	5611756521066863659	Loot/LocationMethods/Prototypes/Tables/CreditsLocationTable.prototype
+4	6101702048589092357	Loot/LocationMethods/Prototypes/Methods/Ring.prototype
+5	6377449595489688986	Loot/LocationMethods/Prototypes/Methods/PathOverrideRadiusRing.prototype
+6	8532708273178222901	Loot/LocationMethods/Prototypes/Tables/Neural30StatBuffItemLocationTable.prototype
+7	8597990554386307212	Loot/LocationMethods/Prototypes/Methods/OffsetRing.prototype
+8	9449502425460776056	Loot/LocationMethods/Prototypes/Tables/FailSafeLocationTable.prototype
+9	10536773104122925978	Loot/LocationMethods/LootLocationTable.defaults
+10	13098349129067667112	Loot/LocationMethods/Prototypes/Tables/ExperienceOrbLocationTable.prototype
+11	14047968691252632238	Loot/LocationMethods/Prototypes/Methods/PathMinimumRing.prototype
+12	15333755421869611756	Loot/LocationMethods/Prototypes/Tables/ItemLocationTable.prototype
+13	16956638074542692698	Loot/LocationMethods/Prototypes/Methods/InPlaceSpawn.prototype
+14	17537336642292030080	Loot/LocationMethods/Prototypes/Tables/OrbLocationTable.prototype

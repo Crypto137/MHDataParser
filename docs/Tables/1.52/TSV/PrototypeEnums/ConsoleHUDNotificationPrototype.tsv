@@ -1,0 +1,10 @@
+Index	PrototypeId	Name
+0	0	
+1	392435270531355231	UI/UINotifications/Console/NewPower.prototype
+2	872326357349504423	UI/UINotifications/Console/InfinityUnlocked.prototype
+3	2544942838600045893	UI/UINotifications/Console/NewDeliveryItem.prototype
+4	6335655386918098877	UI/UINotifications/Console/NewInfinityGemUpgrade.prototype
+5	6658737193915519811	UI/UINotifications/Console/NewSynergy.prototype
+6	8532030323057694722	UI/UINotifications/Console/ConsoleHUDNotification.defaults
+7	16104614872470983137	UI/UINotifications/Console/NewItem.prototype
+8	16623105880571122362	UI/UINotifications/Console/NewTalent.prototype

@@ -1,0 +1,11 @@
+Index	PrototypeId	Name
+0	0	
+1	5744251798575521523	Regions/EndGame/DangerRoomMode/Marsh/DRMarshPOIGroupReaverPlatform.prototype
+2	7012522218005862256	Regions/EndGame/CowLevels/CowFarm/BovinePOIGroup.prototype
+3	8220166437238679513	Regions/EndGame/OneShotMissions/NonChapterBound/BronxZoo/ZooAreas/BronxZooPCZSNPOIGroup.prototype
+4	10811336927217199060	Regions/EndGame/OneShotMissions/NonChapterBound/BronxZoo/ZooAreas/BronxZooPCZWEPOIGroup.prototype
+5	11816175291679383368	Regions/EndGame/DangerRoomMode/Marsh/DRMarshPOIGroupSHIELDCrashsite.prototype
+6	11872231257158852004	Regions/EndGame/CowLevels/AsgardCowLevel/AsgardCowLevelPOIGroup.prototype
+7	14008579304377623374	Regions/EndGame/OneShotMissions/NonChapterBound/WakandaPart1/WakandaP1POIGroup.prototype
+8	15659953228865870931	Regions/EndGame/DangerRoomMode/Marsh/DRMarshPOIGroupFishBait.prototype
+9	18318815636782060215	DRAG/AreaGenerators/RequiredPOIGroup.defaults

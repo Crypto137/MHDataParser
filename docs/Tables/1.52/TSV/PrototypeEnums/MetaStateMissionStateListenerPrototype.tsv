@@ -1,0 +1,12 @@
+Index	PrototypeId	Name
+0	0	
+1	1176724947708877030	Metagame/XMansionDefense/States/XMansionMissionFail.prototype
+2	1901065323437364142	Metagame/Limbo/Objects/LimboMissionFail.prototype
+3	7223219094307744652	Metagame/CosmicGate/CosmicGateWhitelistVariant/States/SuperHeroicGateMissionFailWhitelistVariant.prototype
+4	11591685958093969260	Metagame/CosmicGate/States/HeroicGateMissionFail.prototype
+5	15102496179082630440	Metagame/HoloSim/States/HoloSimMissionFail.prototype
+6	16017792484808399259	Metagame/CosmicGate/States/SuperHeroicGateMissionFail.prototype
+7	16184055438637078474	Metagame/MetaState/MetaStateMissionStateListener.defaults
+8	16434044070017963888	Metagame/CosmicGate/States/CosmicGateMissionFail.prototype
+9	16755377560755906913	Metagame/CosmicGate/CosmicGateWhitelistVariant/States/CosmicGateMissionFailWhitelistVariant.prototype
+10	17212188980971448669	Metagame/CosmicGate/CosmicGateWhitelistVariant/States/HeroicGateMissionFailWhitelistVariant.prototype

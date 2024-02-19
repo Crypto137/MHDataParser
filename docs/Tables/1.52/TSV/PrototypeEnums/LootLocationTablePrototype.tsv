@@ -1,0 +1,10 @@
+Index	PrototypeId	Name
+0	0	
+1	1495410874785602281	Loot/LocationMethods/Prototypes/Tables/InPlaceSpawnTable.prototype
+2	5611756521066863659	Loot/LocationMethods/Prototypes/Tables/CreditsLocationTable.prototype
+3	8532708273178222901	Loot/LocationMethods/Prototypes/Tables/Neural30StatBuffItemLocationTable.prototype
+4	9449502425460776056	Loot/LocationMethods/Prototypes/Tables/FailSafeLocationTable.prototype
+5	10536773104122925978	Loot/LocationMethods/LootLocationTable.defaults
+6	13098349129067667112	Loot/LocationMethods/Prototypes/Tables/ExperienceOrbLocationTable.prototype
+7	15333755421869611756	Loot/LocationMethods/Prototypes/Tables/ItemLocationTable.prototype
+8	17537336642292030080	Loot/LocationMethods/Prototypes/Tables/OrbLocationTable.prototype

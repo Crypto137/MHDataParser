@@ -1,0 +1,6 @@
+Index	PrototypeId	Name
+0	0	
+1	3926711440869891514	Powers/Blueprints/MovementBehaviors/RandomPositionAroundTarget.defaults
+2	5040540998840097135	Powers/Blueprints/MovementBehaviors/MovementBehavior.defaults
+3	9359803089210775488	Powers/Blueprints/MovementBehaviors/StrafeTarget.defaults
+4	15622941494064257076	Powers/Blueprints/MovementBehaviors/FixedRotation.defaults

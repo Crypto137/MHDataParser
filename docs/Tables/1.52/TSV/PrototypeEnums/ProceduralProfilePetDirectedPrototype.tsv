@@ -1,0 +1,27 @@
+Index	PrototypeId	Name
+0	0	
+1	1007980661100322102	AI/ProceduralAI/Prototypes/Profiles/RocketRaccoon/GrootProfile.prototype
+2	1238956584687116411	AI/ProceduralAI/Prototypes/Profiles/DrDoom/DoombotInfernoCallInProfile.prototype
+3	1978235102376304831	AI/ProceduralAI/Prototypes/Profiles/DrDoom/DoombotBlockadeCallInProfile.prototype
+4	2843502061491723638	AI/ProceduralAI/Prototypes/Profiles/LukeCage/ColleenWingProfile.prototype
+5	2944118684093587673	AI/ProceduralAI/Prototypes/Profiles/RocketRaccoon/GrootProfileMovieVol2.prototype
+6	3543504806993075422	AI/ProceduralAI/Prototypes/Profiles/Rogue/LokiIllusionProfile.prototype
+7	3576165448650464666	AI/ProceduralAI/Prototypes/Profiles/LukeCage/MistyKnightProfile.prototype
+8	3578035949346823469	AI/ProceduralAI/Prototypes/Profiles/Loki/RangedIllusionProfile.prototype
+9	4096800082931621282	AI/ProceduralAI/Prototypes/Profiles/Psylocke/ShadowDecoyProfile.prototype
+10	4441810291761356168	AI/ProceduralAI/Prototypes/Profiles/DrDoom/DoomBotProfileRanged.prototype
+11	6544027050234617176	AI/ProceduralAI/Prototypes/Profiles/Iceman/IceGolemMeleeProfile.prototype
+12	6642850002403728333	AI/ProceduralAI/Prototypes/Profiles/Magik/LimboDemonProfile.prototype
+13	6816443878504995729	AI/ProceduralAI/Prototypes/Profiles/DrDoom/DoombotFlyerPet.prototype
+14	7030675495230839885	AI/ProceduralAI/Prototypes/Profiles/LukeCage/IronFistProfile.prototype
+15	9318147814554738144	AI/ProceduralAI/Prototypes/Profiles/LukeCage/JessicaJonesProfile.prototype
+16	10935834785845813391	AI/ProceduralAI/Prototypes/Profiles/DrDoom/DoombotThumperCallInProfile.prototype
+17	11069458665503923397	AI/ProceduralAI/Prototypes/Profiles/Magik/LimboSpitterProfile.prototype
+18	11992791236863073387	AI/ProceduralAI/Prototypes/Profiles/Loki/LokiIllusionProfile.prototype
+19	12730131508632166431	AI/ProceduralAI/Prototypes/Profiles/DrDoom/ServoGuardRangedPetProfile.prototype
+20	12909380076282322412	AI/ProceduralAI/Blueprints/Profiles/ProceduralProfilePetDirected.defaults
+21	12989803325124909375	AI/ProceduralAI/Prototypes/Profiles/Magik/BFLDProfile.prototype
+22	13810764917543476511	AI/ProceduralAI/Prototypes/Profiles/DrDoom/DoomBotProfileMelee.prototype
+23	15637127299571785843	AI/ProceduralAI/Prototypes/Profiles/Cable/GreymalkinGuideEntityProfile.prototype
+24	16254177281182866080	AI/ProceduralAI/Prototypes/Profiles/Magik/NastirhProfile.prototype
+25	18361136443301043649	AI/ProceduralAI/Prototypes/Profiles/Iceman/IceGolemRangedProfile.prototype

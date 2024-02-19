@@ -1,0 +1,11 @@
+Index	PrototypeId	Name
+0	0	
+1	541888244453479143	DRAG/AreaGenerators/GridAreaGenerator.defaults
+2	660959291296388439	DRAG/AreaGenerators/AreaGenerationInterface.defaults
+3	2545025962902951056	DRAG/AreaGenerators/WideGridAreaGenerator.defaults
+4	3445298851037910183	DRAG/AreaGenerators/DistrictAreaGenerator.defaults
+5	5057369239501739375	DRAG/AreaGenerators/CanyonGridAreaGenerator.defaults
+6	9852209817511990627	DRAG/AreaGenerators/SingleCellAreaGenerator.defaults
+7	12286735016095518632	DRAG/AreaGenerators/Generator.defaults
+8	13010868112167408770	DRAG/AreaGenerators/BaseGridAreaGenerator.defaults
+9	17177779260788577138	DRAG/AreaGenerators/TowerAreaGenerator.defaults

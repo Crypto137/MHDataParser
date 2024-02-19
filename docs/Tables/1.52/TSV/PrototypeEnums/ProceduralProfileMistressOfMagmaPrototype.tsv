@@ -1,0 +1,10 @@
+Index	PrototypeId	Name
+0	0	
+1	3029050978708825702	AI/ProceduralAI/Prototypes/Profiles/Bosses/SurturRaid/MistressOfMagmaMiniBossProfile.prototype
+2	3300949857476944677	AI/ProceduralAI/Prototypes/Profiles/Bosses/SurturRaid/FiveMan/MistressOfMagma.prototype
+3	3849206387810640576	AI/ProceduralAI/Blueprints/Profiles/Special/ProceduralProfileMistressOfMagma.defaults
+4	5283636739443598082	AI/ProceduralAI/Prototypes/Profiles/Bosses/SurturRaid/MistressOfMagmaProfile.prototype
+5	10488634337068262068	AI/ProceduralAI/Prototypes/Profiles/Bosses/LimboEventMistressOfMagmaProfile.prototype
+6	11397963348354540187	AI/ProceduralAI/Prototypes/Profiles/Bosses/SurturRaid/MistressOfMagmaEnergy.prototype
+7	12479258217128534894	AI/ProceduralAI/Prototypes/Profiles/Bosses/SurturRaid/MistressOfMagmaPhysical.prototype
+8	17044897185609687698	AI/ProceduralAI/Prototypes/Profiles/Bosses/SurturRaid/MistressOfMagmaMental.prototype

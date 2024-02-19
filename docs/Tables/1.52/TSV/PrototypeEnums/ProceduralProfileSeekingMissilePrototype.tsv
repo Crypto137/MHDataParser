@@ -1,0 +1,23 @@
+Index	PrototypeId	Name
+0	0	
+1	2095516072238523177	AI/ProceduralAI/Prototypes/Profiles/Ironman/IronManRealPulseBoltMissileProfi.prototype
+2	3000559493646654882	AI/ProceduralAI/Prototypes/Profiles/Ironman/MicroMissileProfile.prototype
+3	3055027607930871285	AI/ProceduralAI/Prototypes/Profiles/Loki/UltimateIceShardProfile.prototype
+4	3694583926795607897	AI/ProceduralAI/Prototypes/Profiles/Ironman/MicroMissileBossProfile.prototype
+5	4190815783657611624	AI/ProceduralAI/Prototypes/Profiles/HumanTorch/HomingPiercingShotProfile.prototype
+6	8808761960553259121	AI/ProceduralAI/Prototypes/Profiles/GreenGoblin/GhostBombHomingProfile.prototype
+7	9054133130883244555	AI/ProceduralAI/Prototypes/Profiles/DoctorStrange/BasicDaggerHomingProfile.prototype
+8	9450444595453894739	AI/ProceduralAI/Prototypes/Profiles/Hawkeye/TurretArrowMissileProfile.prototype
+9	9655404831454405251	AI/ProceduralAI/Prototypes/Profiles/SquirrelGirl/HulkbusterSquirrelProfile.prototype
+10	11336729147969052264	AI/ProceduralAI/Prototypes/Profiles/Magik/BoneSpiritHomingProfile.prototype
+11	11670817882163454422	AI/ProceduralAI/Prototypes/Profiles/JeanGrey/JeanGreyTKTossSeekingProfile.prototype
+12	12240540564091969781	AI/ProceduralAI/Prototypes/Profiles/TeamUps/JubileeHomingMissileProfile.prototype
+13	12728765532968263727	AI/ProceduralAI/Prototypes/Profiles/Ironman/MissileSalvoHomingProfile.prototype
+14	12785407195107500604	AI/ProceduralAI/Prototypes/Profiles/InvisibleWoman/SeekerOrbsHomingProfile.prototype
+15	12834576762141547296	AI/ProceduralAI/Prototypes/Profiles/DrDoom/DrDoomMissiles.prototype
+16	15147139166700969787	AI/ProceduralAI/Blueprints/Profiles/ProceduralProfileSeekingMissile.defaults
+17	16268447417926098635	AI/ProceduralAI/Prototypes/Profiles/Cable/HomingShotMissileProfile.prototype
+18	16431889985709219751	AI/ProceduralAI/Prototypes/Profiles/Ironman/WarMachineMissileProfile.prototype
+19	16907346619750162455	AI/ProceduralAI/Prototypes/Profiles/FrostGiants/IceShardHomingProfile.prototype
+20	17032936552583336852	Powers/TeamUps/DrDoom/BasicShotProfile.prototype
+21	17938642452904746722	AI/ProceduralAI/Prototypes/Profiles/ScarletWitch/ShadowBoltProfile.prototype

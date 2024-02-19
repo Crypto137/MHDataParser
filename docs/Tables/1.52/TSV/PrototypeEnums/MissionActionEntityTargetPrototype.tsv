@@ -1,0 +1,11 @@
+Index	PrototypeId	Name
+0	0	
+1	1316341598090827537	Missions/Blueprints/Actions/EntityPerformPower.defaults
+2	5444640447640441807	Missions/Blueprints/ActionEntityTarget.defaults
+3	6074952836970452310	Missions/Blueprints/Actions/EntitySetState.defaults
+4	10147563846370857877	Missions/Blueprints/Actions/EntityKill.defaults
+5	12209970695099519953	Missions/Blueprints/Actions/AllianceSet.defaults
+6	12231362710016825049	Missions/Blueprints/Actions/EntSelEvtBroadcast.defaults
+7	13658214585544479987	Missions/Blueprints/Actions/EntityDestroy.defaults
+8	15436620373349307936	Missions/Blueprints/Actions/ShowOverheadText.defaults
+9	17008777951415113024	Missions/Blueprints/Actions/SpawnerTrigger.defaults

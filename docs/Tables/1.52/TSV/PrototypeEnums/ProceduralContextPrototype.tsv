@@ -1,0 +1,12 @@
+Index	PrototypeId	Name
+0	0	
+1	365107967692578125	AI/ProceduralAI/Prototypes/Profiles/Test/GroundSmashSyncAttack.prototype
+2	4290097993765232914	AI/ProceduralAI/Blueprints/ProceduralContexts/ProceduralInteractContext.defaults
+3	8139181623596096952	AI/ProceduralAI/Blueprints/ProceduralContexts/ProceduralContext.defaults
+4	10304752878341660214	AI/ProceduralAI/Blueprints/ProceduralContexts/PhotonicEnrageSync.prototype
+5	11305633415506895794	AI/ProceduralAI/Blueprints/ProceduralContexts/ProceduralThresholdPowerContext.defaults
+6	11340898924638904626	AI/ProceduralAI/Blueprints/ProceduralContexts/ProceduralUsePowerContext.defaults
+7	13061986150048866132	AI/ProceduralAI/Blueprints/ProceduralContexts/ProceduralFleeContext.defaults
+8	13607225945447670046	AI/ProceduralAI/Blueprints/ProceduralContexts/HammerShieldShockwaveSync.prototype
+9	14197843084407545796	AI/ProceduralAI/Blueprints/ProceduralContexts/ProceduralFlankContext.defaults
+10	17357030588774884160	AI/ProceduralAI/Blueprints/ProceduralContexts/ProceduralUseAffixPowerContext.defaults

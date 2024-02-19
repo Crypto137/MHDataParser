@@ -1,0 +1,8 @@
+Index	PrototypeId	Name
+0	0	
+1	3200633985132925828	Entity/Components/Bounds/CapsuleBounds.defaults
+2	13300175121507749902	SpawnMarkers/Sizes/RadiusHuge.prototype
+3	14902718279946670192	SpawnMarkers/Sizes/RadiusLarge.prototype
+4	16369573314931265577	SpawnMarkers/Sizes/RadiusTiny.prototype
+5	16735100540169359590	SpawnMarkers/Sizes/RadiusMedium.prototype
+6	17860302166656159870	SpawnMarkers/Sizes/RadiusSmall.prototype

@@ -1,0 +1,8 @@
+Index	PrototypeId	Name
+0	0	
+1	3245097085225412243	AI/ProceduralAI/Prototypes/Profiles/VenomPlayerProfiles/UltimateSymbioteDrainProfile.prototype
+2	5210351472085246766	AI/ProceduralAI/Prototypes/Profiles/VenomPlayerProfiles/SymbioteDrainProfile.prototype
+3	7380947321407677759	AI/ProceduralAI/Prototypes/Profiles/VenomPlayerProfiles/SymbioteDrainProfileGreen.prototype
+4	11557074859655832681	AI/ProceduralAI/Prototypes/Profiles/VenomPlayerProfiles/SymbioteDrainProfileRed.prototype
+5	13307999389584270671	AI/ProceduralAI/Prototypes/Profiles/VenomPlayerProfiles/SymbioteDrainProfileWhite.prototype
+6	16028769228960768488	AI/ProceduralAI/Blueprints/Profiles/Special/ProceduralProfileSymbioteDrain.defaults
