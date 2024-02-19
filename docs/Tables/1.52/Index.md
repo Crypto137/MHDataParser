@@ -14,4 +14,6 @@ The following data tables were parsed from version `1.52.0.1700`.
 
 - [Property Info Table](./PropertyInfoTable.md)
 
+- [Prototype Enums](./TSV/PrototypeEnums/) (these are available only as TSV)
+
 
