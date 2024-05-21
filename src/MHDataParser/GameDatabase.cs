@@ -360,6 +360,64 @@ namespace MHDataParser
             Console.WriteLine("Done");
         }
 
+        public static void ExportPrototypeEnums()
+        {
+            Console.WriteLine("Exporting prototype enums...");
+
+            List<PrototypeId> prototypeEnumList = new(PrototypeRefManager.Count + 1) { 0 };
+            List<PrototypeId> entityPrototypeEnumList = new() { 0 };
+            List<PrototypeId> inventoryPrototypeEnumList = new() { 0 };
+            List<PrototypeId> powerPrototypeEnumList = new() { 0 };
+
+            // Get all prototype ids and sort them to get enum for the base Prototype class
+            foreach (var kvp in PrototypeRefManager)
+                prototypeEnumList.Add(kvp.Key);
+
+            prototypeEnumList.Sort();
+
+            // Populate lists for EntityPrototype, InventoryPrototype, and PowerPrototype subclasses
+            foreach (PrototypeId prototypeId in prototypeEnumList)
+            {
+                PrototypeRecord record = PrototypeDirectory.GetPrototypeRecord(prototypeId);
+                if (record == null) continue;   // We don't need resource prototypes, so we just skip them
+
+                string blueprintName = BlueprintRefManager.GetReferenceName((BlueprintId)record.BlueprintId);
+                if (BlueprintDict.TryGetValue(blueprintName, out Blueprint blueprint) == false)
+                {
+                    Console.WriteLine($"Failed to get blueprint for prototype id {prototypeId}");
+                    continue;
+                }
+
+                string runtimeBinding = blueprint.RuntimeBinding;
+
+                if (PrototypeHierarchyHelper.IsEntityPrototype(runtimeBinding))
+                    entityPrototypeEnumList.Add(prototypeId);
+                else if (PrototypeHierarchyHelper.IsInventoryPrototype(runtimeBinding))
+                    inventoryPrototypeEnumList.Add(prototypeId);
+                else if (PrototypeHierarchyHelper.IsPowerPrototype(runtimeBinding))
+                    powerPrototypeEnumList.Add(prototypeId);
+            }
+
+            // Save output
+            string dir = Path.Combine(OutputDirectory, "PrototypeEnums");
+            if (Directory.Exists(dir) == false) Directory.CreateDirectory(dir);
+
+            File.WriteAllLines(Path.Combine(dir, "Prototype.tsv"),
+                prototypeEnumList.Select(id => ((ulong)id).ToString()));
+
+            File.WriteAllLines(Path.Combine(dir, "EntityPrototype.tsv"),
+                entityPrototypeEnumList.Select(id => ((ulong)id).ToString()));
+
+            File.WriteAllLines(Path.Combine(dir, "InventoryPrototype.tsv"),
+                inventoryPrototypeEnumList.Select(id => ((ulong)id).ToString()));
+
+            File.WriteAllLines(Path.Combine(dir, "PowerPrototype.tsv"),
+                powerPrototypeEnumList.Select(id => ((ulong)id).ToString()));
+
+            Console.WriteLine(string.Format("Done, ref counts: Prototype = {0}, EntityPrototype = {1}, InventoryPrototype = {2}, PowerPrototype = {3}",
+                prototypeEnumList.Count, entityPrototypeEnumList.Count, inventoryPrototypeEnumList.Count, powerPrototypeEnumList.Count));
+        }
+
         private static void SerializeDictAsJson<T>(Dictionary<string, T> dict, string prefix = "")
         {
             if (_jsonOptions == null) InitializeJsonOptions();

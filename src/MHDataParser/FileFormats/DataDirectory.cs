@@ -7,6 +7,8 @@
 
     public class DataDirectory
     {
+        private Dictionary<PrototypeId, PrototypeRecord> _prototypeRecordDict;
+
         public CalligraphyHeader Header { get; }
         public DataRecord[] Records { get; }
 
@@ -33,8 +35,14 @@
                             Records[i] = new BlueprintRecord(reader);
                         break;
                     case "PDR":     // Prototype
+                        _prototypeRecordDict = new();
                         for (int i = 0; i < Records.Length; i++)
-                            Records[i] = new PrototypeRecord(reader);
+                        {
+                            PrototypeRecord record = new(reader);
+                            Records[i] = record;
+                            _prototypeRecordDict.Add(record.Id, record);
+                        }
+
                         break;
                     case "RDR":     // Replacement
                         for (int i = 0; i < Records.Length; i++)
@@ -42,6 +50,16 @@
                         break;
                 }
             }
+        }
+
+        public PrototypeRecord GetPrototypeRecord(PrototypeId prototypeId)
+        {
+            if (_prototypeRecordDict == null) return null;
+
+            if (_prototypeRecordDict.TryGetValue(prototypeId, out PrototypeRecord record) == false)
+                return null;
+
+            return record;
         }
     }
 

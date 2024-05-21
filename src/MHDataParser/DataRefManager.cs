@@ -1,6 +1,8 @@
-﻿namespace MHDataParser
+﻿using System.Collections;
+
+namespace MHDataParser
 {
-    public class DataRefManager<T> where T : Enum
+    public class DataRefManager<T> : IEnumerable<KeyValuePair<T, string>> where T : Enum
     {
         private readonly Dictionary<T, string> _referenceDict = new();
         private readonly Dictionary<string, T> _reverseLookupDict;
@@ -46,50 +48,7 @@
             return name;
         }
 
-        public T[] Enumerate()
-        {
-            T[] refValues = new T[_referenceDict.Count];
-
-            int i = 0;
-            foreach (T key in _referenceDict.Keys)
-            {
-                refValues[i] = key;
-                i++;
-            }
-
-            Array.Sort(refValues);
-
-            return refValues;
-        }
-
-        // Temporarily move lookups here until we figure out a better way to implement them
-
-        public List<KeyValuePair<T, string>> LookupCostume(string pattern)
-        {
-            List<KeyValuePair<T, string>> matchList = new();
-
-            foreach (var kvp in _referenceDict)
-                if (kvp.Value.Contains("Entity/Items/Costumes/Prototypes/") && kvp.Value.ToLower().Contains(pattern))
-                    matchList.Add(kvp);
-
-            return matchList;
-        }
-
-        public List<KeyValuePair<T, string>> LookupRegion(string pattern)
-        {
-            List<KeyValuePair<T, string>> matchList = new();
-
-            foreach (var kvp in _referenceDict)
-            {
-                if (kvp.Value.Contains("Regions/"))
-                {
-                    string fileName = Path.GetFileName(kvp.Value);
-                    if (fileName.Contains("Region") && Path.GetExtension(fileName) == ".prototype" && fileName.ToLower().Contains(pattern))
-                        matchList.Add(kvp);
-                }
-            }
-
-            return matchList;
-        }
+        public IEnumerator<KeyValuePair<T, string>> GetEnumerator() => _referenceDict.GetEnumerator();
+        IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
     }
 }

@@ -31,6 +31,8 @@
 
                 case "export-locales":          OnExportLocales();      break;
 
+                case "export-prototype-enums":  OnExportPrototypeEnums(); break;
+
                 default: Console.WriteLine($"Command '{command}' does not exist"); break;
             }
         }
@@ -65,6 +67,7 @@
             Console.WriteLine("export-props: Exports parsed props as JSON.");
             Console.WriteLine("export-prop-sets: Exports parsed prop sets as JSON.");
             Console.WriteLine("export-uis: Exports parsed UIs as JSON.");
+            Console.WriteLine("export-prototype-enums: Exports Calligraphy prototype hierarchy cache enums needed for archive serialization.");
 
             Console.WriteLine();
 
@@ -114,5 +117,7 @@
         private static void OnExportUIs() => GameDatabase.ExportUIs();
 
         private static void OnExportLocales() => GameDatabase.ExportLocales();
+
+        private static void OnExportPrototypeEnums() => GameDatabase.ExportPrototypeEnums();
     }
 }
