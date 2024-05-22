@@ -29,9 +29,10 @@
                 case "export-prop-sets":        OnExportPropSets();     break;
                 case "export-uis":              OnExportUIs();          break;
 
-                case "export-locales":          OnExportLocales();      break;
+                case "export-prototype-enums":      OnExportPrototypeEnums(); break;
+                case "generate-prototype-classes":  OnGeneratePrototypeClasses(); break;
 
-                case "export-prototype-enums":  OnExportPrototypeEnums(); break;
+                case "export-locales":          OnExportLocales();      break;
 
                 default: Console.WriteLine($"Command '{command}' does not exist"); break;
             }
@@ -67,7 +68,9 @@
             Console.WriteLine("export-props: Exports parsed props as JSON.");
             Console.WriteLine("export-prop-sets: Exports parsed prop sets as JSON.");
             Console.WriteLine("export-uis: Exports parsed UIs as JSON.");
+
             Console.WriteLine("export-prototype-enums: Exports Calligraphy prototype hierarchy cache enums needed for archive serialization.");
+            Console.WriteLine("generate-prototype-classes: Generates C# classes from prototype blueprints.");
 
             Console.WriteLine();
 
@@ -116,8 +119,9 @@
         private static void OnExportPropSets() => GameDatabase.ExportPropSets();
         private static void OnExportUIs() => GameDatabase.ExportUIs();
 
-        private static void OnExportLocales() => GameDatabase.ExportLocales();
-
         private static void OnExportPrototypeEnums() => GameDatabase.ExportPrototypeEnums();
+        private static void OnGeneratePrototypeClasses() => GameDatabase.GeneratePrototypeClasses();
+
+        private static void OnExportLocales() => GameDatabase.ExportLocales();
     }
 }

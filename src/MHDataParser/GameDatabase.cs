@@ -2,6 +2,7 @@
 using System.Text.Encodings.Web;
 using System.Text.Json;
 using System.Text.Unicode;
+using MHDataParser.CodeGeneration;
 using MHDataParser.FileFormats;
 using MHDataParser.JsonOutput;
 
@@ -381,7 +382,7 @@ namespace MHDataParser
                 PrototypeRecord record = PrototypeDirectory.GetPrototypeRecord(prototypeId);
                 if (record == null) continue;   // We don't need resource prototypes, so we just skip them
 
-                string blueprintName = BlueprintRefManager.GetReferenceName((BlueprintId)record.BlueprintId);
+                string blueprintName = GetBlueprintName((BlueprintId)record.BlueprintId);
                 if (BlueprintDict.TryGetValue(blueprintName, out Blueprint blueprint) == false)
                 {
                     Console.WriteLine($"Failed to get blueprint for prototype id {prototypeId}");
@@ -416,6 +417,15 @@ namespace MHDataParser
 
             Console.WriteLine(string.Format("Done, ref counts: Prototype = {0}, EntityPrototype = {1}, InventoryPrototype = {2}, PowerPrototype = {3}",
                 prototypeEnumList.Count, entityPrototypeEnumList.Count, inventoryPrototypeEnumList.Count, powerPrototypeEnumList.Count));
+        }
+
+        public static void GeneratePrototypeClasses()
+        {
+            Console.WriteLine("Generating prototype classes...");
+            if (Directory.Exists(OutputDirectory) == false) Directory.CreateDirectory(OutputDirectory);
+            string filePath = Path.Combine(OutputDirectory, "Prototypes.cs");
+            PrototypeClassGenerator.Generate(filePath);
+            Console.WriteLine("Done");
         }
 
         private static void SerializeDictAsJson<T>(Dictionary<string, T> dict, string prefix = "")
