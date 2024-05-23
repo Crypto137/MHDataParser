@@ -116,10 +116,25 @@ namespace MHDataParser
             // Load Calligraphy prototypes
             foreach (PrototypeRecord record in PrototypeDirectory.Records)
             {
-                PrototypeFile prototypeFile = new(_calligraphyPak.GetFile($"Calligraphy/{record.FilePath}"));
-                PrototypeDict.Add(record.FilePath, prototypeFile);
+                try
+                {
+                    PrototypeFile prototypeFile = new(_calligraphyPak.GetFile($"Calligraphy/{record.FilePath}"));
+                    PrototypeDict.Add(record.FilePath, prototypeFile);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine($"Failed to parse {record.FilePath}: {e.Message}");
+                }
+
             }
             Console.WriteLine($"Parsed {PrototypeDict.Count} Calligraphy prototypes");
+
+            // Ugly goto skip for unsupported file formats for now
+            if (PrototypeDirectory.Header.Version == 10)
+            {
+                Console.WriteLine("Legacy format detected, skipping the resource prototypes and locales");
+                goto V10Skip;
+            }
 
             // Load resource prototypes
             foreach (PakEntry entry in _resourcePak.Entries)
@@ -189,6 +204,8 @@ namespace MHDataParser
             }
 
             Console.WriteLine($"Loaded {LocaleDict.Count} locales");
+
+            V10Skip:
 
             // Finish game database initialization
             stopwatch.Stop();

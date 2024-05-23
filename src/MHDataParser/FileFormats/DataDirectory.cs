@@ -18,7 +18,9 @@
             using (BinaryReader reader = new(stream))
             {
                 Header = new(reader);
-                Records = new DataRecord[reader.ReadUInt32()];
+
+                int numRecords = Header.Version == 11 ? reader.ReadInt32() : reader.ReadInt16();
+                Records = new DataRecord[numRecords];
 
                 switch (Header.Magic)
                 {
