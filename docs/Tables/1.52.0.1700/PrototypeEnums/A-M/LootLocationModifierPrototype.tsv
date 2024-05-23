@@ -1,0 +1,7 @@
+Index	PrototypeId	Name
+0	0	
+1	727715699889674260	Loot/LocationMethods/Modifiers/LootBoundsOverride.defaults
+2	1153270273112152285	Loot/LocationMethods/ZAbstract/LootLocationModifier.defaults
+3	8686948742764500220	Loot/LocationMethods/Modifiers/DropInPlace.defaults
+4	13055966813056538407	Loot/LocationMethods/Modifiers/LootSearchRadius.defaults
+5	13825089628592019465	Loot/LocationMethods/Modifiers/LootLocationOffset.defaults

@@ -1,0 +1,14 @@
+Index	PrototypeId	Name
+0	0	
+1	2766049266084419693	Entity/BlackOutZones/DiscoveryExtraHugeBlackout1000.prototype
+2	3283284606223914148	Entity/BlackOutZones/ZoneGiantBlackout2048.prototype
+3	3680956059844024319	Entity/BlackOutZones/BlackOutZoneCustomBoxXXxXX.prototype
+4	5497666931077813391	Entity/BlackOutZones/CellSizedBlackout1620.prototype
+5	6667793810386392826	Entity/BlackOutZones/DiscoveryMediumBlackout325.prototype
+6	8911948216385410570	Entity/BlackOutZones/SafeZoneLargeBlackout625.prototype
+7	9636988634755372900	Entity/BlackOutZones/DiscoveryDefaultBlackout475.prototype
+8	11576057928418989620	Entity/BlackOutZones/DiscoveryTinyBlackout100.prototype
+9	13874329005125408394	Entity/BlackOutZones/DiscoveryLargeBlackout475.prototype
+10	15197412110382798485	Entity/BlackOutZones/DiscoverySmallBlackout175.prototype
+11	15665893759514187299	Entity/BlackOutZones/DiscoveryHugeBlackout650.prototype
+12	17831699918670860706	Entity/BlackOutZones/BlackOutZone.defaults

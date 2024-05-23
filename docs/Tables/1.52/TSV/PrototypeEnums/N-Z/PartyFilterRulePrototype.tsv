@@ -1,7 +1,0 @@
-Index	PrototypeId	Name
-0	0	
-1	3848786580004344483	Party/PartyFilter/Rules/MemberOfTeam.defaults
-2	4531970591627088796	Party/PartyFilter/Rules/WearingCostume.defaults
-3	11822179922723672912	Party/PartyFilter/Rules/HasPrototoype.defaults
-4	13538987442122789360	Party/PartyFilter/Rules/HasKeyword.defaults
-5	16822335842429703197	Party/PartyFilter/Rules/PartyFilterRule.defaults

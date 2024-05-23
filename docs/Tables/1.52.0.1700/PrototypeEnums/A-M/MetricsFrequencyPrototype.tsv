@@ -1,0 +1,7 @@
+Index	PrototypeId	Name
+0	0	
+1	547671753183466358	Metrics/Frequency/SuperVerboseMetrics.prototype
+2	1268487696306279274	Metrics/Frequency/MediumVolumeMetrics.prototype
+3	8564444577787744827	Metrics/Frequency/LowVolumeMetrics.prototype
+4	12120144300434920056	Metrics/Blueprints/MetricsFrequency.defaults
+5	16028989148839744137	Metrics/Frequency/HighVolumeMetrics.prototype

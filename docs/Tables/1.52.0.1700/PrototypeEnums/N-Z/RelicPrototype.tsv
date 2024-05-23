@@ -1,0 +1,23 @@
+Index	PrototypeId	Name
+0	0	
+1	717652100990179085	Entity/Items/Relics/Prototypes/RelicMeleeDamage.prototype
+2	1344852939063432802	Entity/Items/Relics/Prototypes/RelicHealOnHit.prototype
+3	1370635275728329367	Entity/Items/Relics/Prototypes/SecondWave/RelicAOEDamage.prototype
+4	1664936954180605814	Entity/Items/Relics/Prototypes/RelicRangedDamage.prototype
+5	1765806128084818532	Entity/Items/Relics/Prototypes/SecondWave/RelicTenacity.prototype
+6	4033922412258857644	Entity/Items/Test/RaidTestItemDamage.prototype
+7	4903620501110462135	Entity/Items/Relics/Prototypes/RelicCritDamage.prototype
+8	6905222151784305988	Entity/Items/Relics/Prototypes/RelicThorns.prototype
+9	8077076649917357457	Entity/Items/Relics/Prototypes/SecondWave/RelicBasicPowerDamage.prototype
+10	8255039456199642606	Entity/Items/Relics/Relic.defaults
+11	9094922933437930265	Entity/Items/Relics/Prototypes/SecondWave/RelicBossDamage.prototype
+12	10135169478294902081	Entity/Items/Relics/Prototypes/RelicSpirit.prototype
+13	10696318707641947758	Entity/Items/Relics/Prototypes/RelicMoveSpeed.prototype
+14	12338514607077398436	Entity/Items/Relics/Prototypes/RelicSummonDamage.prototype
+15	12472995674823858653	Entity/Items/Relics/Prototypes/SecondWave/RelicDefense.prototype
+16	13519113396735777780	Entity/Items/Relics/Prototypes/SecondWave/RelicDoubleHealth.prototype
+17	13536487893705101069	Entity/Items/Test/TESTRelic.prototype
+18	13652844795605818025	Entity/Items/Relics/Prototypes/SecondWave/RelicDOTDamage.prototype
+19	17612053243636486988	Entity/Items/Test/RaidTestItemForWill.prototype
+20	17795607140687680311	Entity/Items/Test/RaidTestItemCritDmg.prototype
+21	18432582380505404320	Entity/Items/Test/RelicTestOnlyEndGame.prototype

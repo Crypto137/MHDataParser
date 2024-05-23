@@ -1,0 +1,7 @@
+Index	PrototypeId	Name
+0	0	
+1	4906321369348511269	Entity/Items/Crafting/ZAbstract/CraftingInput.defaults
+2	5534569522377135486	Entity/Items/Crafting/Inputs/RestrictionSet.defaults
+3	8435381688098689969	Entity/Items/Crafting/Inputs/MatchFirst.defaults
+4	11856704083258578383	Entity/Items/Crafting/Inputs/AllowedItemList.defaults
+5	12138591766971159811	Entity/Items/Crafting/Inputs/AutoPopulated.defaults

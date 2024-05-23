@@ -1,0 +1,23 @@
+Index	PrototypeId	Name
+0	0	
+1	522617787644253137	Missions/Types/Keywords/RescueCitizens.prototype
+2	1497892044319757146	Missions/Types/Keywords/HightownPhase.prototype
+3	1545599787229189611	Missions/Types/Keywords/SharedWeeklyMission.prototype
+4	1924085134027396461	Missions/Types/Keywords/SharedDailyMission.prototype
+5	2632414060349297801	Missions/Types/Keywords/CivilWarDailyCap.prototype
+6	3751889445844881972	Missions/Blueprints/MissionKeyword.defaults
+7	4320710488317432990	Missions/Types/Keywords/LegendaryMission.prototype
+8	4529923529464681595	Missions/Types/Keywords/CH10PagodaMission.prototype
+9	4887168524134062481	Missions/Types/Keywords/AchievementBodyguardBullying.prototype
+10	4893622647120532214	Missions/Types/Keywords/LimboMission.prototype
+11	5762465748678874621	Missions/Types/Keywords/HightownPatrolEvent.prototype
+12	5829870686998894300	Missions/Types/Keywords/DangerRoomVictoryRoom.prototype
+13	7036286490478776752	Missions/Types/Keywords/Formation.prototype
+14	8165243122152968921	Missions/Types/Keywords/GenoshaDaily.prototype
+15	9609127304314033559	Missions/Types/Keywords/MidtownPatrolEvent.prototype
+16	13332124516183905865	Missions/Types/Keywords/CivilWarDailyIronMan.prototype
+17	13963755960184607898	Missions/Types/Keywords/AirfieldShowdown.prototype
+18	15325841783055127518	Missions/Types/Keywords/HoloSimMission.prototype
+19	16123509635818264269	Missions/Types/Keywords/AchievementStoryEvent.prototype
+20	16804527418074731707	Missions/Types/Keywords/IndustyCityPhase.prototype
+21	18435024451427439445	Missions/Types/Keywords/XDefenseEvent.prototype

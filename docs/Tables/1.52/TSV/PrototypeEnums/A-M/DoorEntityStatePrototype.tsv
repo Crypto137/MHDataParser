@@ -1,5 +1,0 @@
-Index	PrototypeId	Name
-0	0	
-1	2597738357576830248	Entity/States/DoorOpen.prototype
-2	5349377175605153264	Entity/States/DoorClosed.prototype
-3	9362164213640269137	Entity/DoorEntityState.defaults

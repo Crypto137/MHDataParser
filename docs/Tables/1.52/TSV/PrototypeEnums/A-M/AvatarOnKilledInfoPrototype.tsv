@@ -1,9 +1,0 @@
-Index	PrototypeId	Name
-0	0	
-1	3502709015510982410	Metagame/PvEWaveBase/PvEWaveBattle/PvEWaveBattleAvatarOnKilledInfo.prototype
-2	3918065274897047476	Metagame/PvEWaveBase/PvEScaleBattle/PvEScaleBattleAvatarOnKilledInfo.prototype
-3	4915464764335331491	Metagame/CosmicGate/States/CosmicGateAvatarOnKilled.prototype
-4	5639626486720960629	Metagame/DefenderPvP/PvPDefenderAvatarOnKilledInfo.prototype
-5	8764092208932261539	Globals/AvatarOnKilledInfo.defaults
-6	15256476478115551793	Metagame/XMansionDefense/XMansionDefenseAvatarOnKilled.prototype
-7	16856812197293069209	Metagame/HoloSim/HoloSimAvatarOnKilled.prototype

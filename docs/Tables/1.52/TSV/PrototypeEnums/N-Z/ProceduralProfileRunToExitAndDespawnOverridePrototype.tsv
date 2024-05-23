@@ -1,6 +1,0 @@
-Index	PrototypeId	Name
-0	0	
-1	3961993279388002178	AI/ProceduralAI/Prototypes/Overrides/MissionOverrides/RunToExitAndDespawnOveridProfile.prototype
-2	4477129384845911955	AI/ProceduralAI/Prototypes/Overrides/MissionOverrides/RunToExitAndDespawnNoVanishOveri.prototype
-3	9624892595435743528	AI/ProceduralAI/Blueprints/Profiles/Overrides/MissionOverrides/ProceProfRunToExitAndDespawn.defaults
-4	13340034306537367757	AI/ProceduralAI/Prototypes/Overrides/MissionOverrides/Brood/BroodCageDelayRunToExitProfile.prototype

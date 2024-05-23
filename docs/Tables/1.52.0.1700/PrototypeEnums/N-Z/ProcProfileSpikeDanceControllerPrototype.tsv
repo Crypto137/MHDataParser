@@ -1,0 +1,7 @@
+Index	PrototypeId	Name
+0	0	
+1	2190189918320338040	AI/ProceduralAI/Prototypes/Profiles/Bosses/OnslaughtRaid/SpikeDanceMobController.prototype
+2	6390438650148431510	AI/ProceduralAI/Prototypes/Profiles/Bosses/OnslaughtRaid/SpikeDanceMobControllerRight.prototype
+3	7472018448244350781	AI/ProceduralAI/Blueprints/Profiles/ProcProfileSpikeDanceController.defaults
+4	10147057956884850425	AI/ProceduralAI/Prototypes/Profiles/Bosses/OnslaughtRaid/SpikeDanceMobControllerCenter.prototype
+5	12554119711739946531	AI/ProceduralAI/Prototypes/Profiles/Bosses/OnslaughtRaid/SpikeDanceMobControllerLeft.prototype

@@ -1,0 +1,10 @@
+Index	PrototypeId	Name
+0	0	
+1	3391741308643843316	UI/LocalizedInfo/CharacterSheet/Attributes/UIHoldingPrototype.prototype
+2	4054739468678470226	UI/LocalizedInfo/CharacterSheet/Attributes/UIDurability.prototype
+3	4288678167375255913	UI/LocalizedInfo/CharacterSheet/Attributes/UIFighting.prototype
+4	10269289489433563822	UI/LocalizedInfo/UILocalizedStatInfo.defaults
+5	12679602288653572488	UI/LocalizedInfo/CharacterSheet/Attributes/UIStrength.prototype
+6	14575803990336411690	UI/LocalizedInfo/CharacterSheet/Attributes/UISpeed.prototype
+7	18045649952303225612	UI/LocalizedInfo/CharacterSheet/Attributes/UIIntelligence.prototype
+8	18202154550995721440	UI/LocalizedInfo/CharacterSheet/Attributes/UIEnergyProjection.prototype

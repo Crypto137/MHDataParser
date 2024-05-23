@@ -1,7 +1,0 @@
-Index	PrototypeId	Name
-0	0	
-1	365107967692578125	AI/ProceduralAI/Prototypes/Profiles/Test/GroundSmashSyncAttack.prototype
-2	10304752878341660214	AI/ProceduralAI/Blueprints/ProceduralContexts/PhotonicEnrageSync.prototype
-3	11305633415506895794	AI/ProceduralAI/Blueprints/ProceduralContexts/ProceduralThresholdPowerContext.defaults
-4	11340898924638904626	AI/ProceduralAI/Blueprints/ProceduralContexts/ProceduralUsePowerContext.defaults
-5	13607225945447670046	AI/ProceduralAI/Blueprints/ProceduralContexts/HammerShieldShockwaveSync.prototype

@@ -1,0 +1,16 @@
+Index	PrototypeId	Name
+0	0	
+1	4531575467255927612	UI/RadialMenu/Console/TabLists/Inspect.prototype
+2	4702614332829865012	UI/RadialMenu/Console/TabLists/Inventory.prototype
+3	5051761856936547045	UI/RadialMenu/Console/TabLists/Roster.prototype
+4	5368946661237789588	UI/RadialMenu/Console/TabLists/Crafting.prototype
+5	5759604013531533939	UI/RadialMenu/Console/TabLists/Store.prototype
+6	7253597263787791064	UI/RadialMenu/Console/TabLists/Skills.prototype
+7	8817280309480264404	UI/RadialMenu/Console/TabLists/Vendor.prototype
+8	9321504140315595602	UI/RadialMenu/Console/TabLists/Options.prototype
+9	9841726376423396283	UI/RadialMenu/Console/TabLists/Missions.prototype
+10	10574278858208383698	UI/RadialMenu/Console/TabLists/TeamUp.prototype
+11	15152607541705118772	UI/RadialMenu/Console/TabLists/Waypoints.prototype
+12	16517290891387146857	UI/RadialMenu/Console/TabLists/Stash.prototype
+13	17295444769177211833	UI/RadialMenu/Console/TabLists/Costumes.prototype
+14	18437112492414670751	UI/RadialMenu/Console/TabLists/PanelLoaderTabList.defaults

@@ -1,0 +1,13 @@
+Index	PrototypeId	Name
+0	0	
+1	4289394054428040917	AI/ProceduralAI/Prototypes/Profiles/Enticers/EnticerKingpinProfile.prototype
+2	5394841297475608395	AI/ProceduralAI/Prototypes/Profiles/Enticers/EnticerBigThrowProfile.prototype
+3	8167350180257670961	AI/ProceduralAI/Prototypes/Profiles/Enticers/Bosses/MrHyde/EnticerThrowableBarrelMrHyde.prototype
+4	12215970845582106573	AI/ProceduralAI/Prototypes/Profiles/Enticers/EnticerHulkThrowProfile.prototype
+5	12491234931426794818	AI/ProceduralAI/Prototypes/Profiles/Enticers/TestEntierProfile.prototype
+6	13793397686661883122	AI/ProceduralAI/Prototypes/Profiles/Enticers/Missions/RifleStandingEnticerProfile.prototype
+7	14152776001863820129	AI/ProceduralAI/Prototypes/Profiles/Enticers/EnticerCivilianPCInteractProfile.prototype
+8	14734502788286588521	AI/ProceduralAI/Prototypes/Profiles/Enticers/Bosses/MrHyde/EnticerThrowableTreeMrHyde.prototype
+9	14864467742944601079	AI/ProceduralAI/Prototypes/Profiles/Enticers/EnticerSkrullLukeCageThrowProfile.prototype
+10	15989333882644341252	AI/ProceduralAI/Prototypes/Profiles/Enticers/EnticerSurturMonolithProfile.prototype
+11	16154270774494961854	AI/ProceduralAI/Blueprints/Profiles/DoNotTouch/ProceduralProfileEnticer.defaults

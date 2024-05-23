@@ -1,9 +1,0 @@
-Index	PrototypeId	Name
-0	0	
-1	8811053143710243777	Metagame/Raids/Axis/States/AxisRaidP3OnslaughtFailedRestart.prototype
-2	10578360685348853064	Metagame/MetaState/MetaStateMissionRestart.defaults
-3	11139309685633064143	Metagame/Raids/Axis/States/AxisRaidSentinelAchievementRestart.prototype
-4	12216808326601317687	Metagame/Raids/Axis/States/AxisRaidNullifierAchievementRestart.prototype
-5	12411273199988513727	Metagame/Raids/Axis/States/AxisRaidP1SentinelsFailedRestart.prototype
-6	15449445405365443624	Metagame/Raids/Axis/States/AxisRaidP2NullifiersFailedRestart.prototype
-7	15543496011906751810	Metagame/Raids/Axis/States/AxisRaidOnslaughtAchievementRestart.prototype

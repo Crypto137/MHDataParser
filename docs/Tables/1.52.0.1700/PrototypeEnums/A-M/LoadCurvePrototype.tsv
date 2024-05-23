@@ -1,0 +1,15 @@
+Index	PrototypeId	Name
+0	0	
+1	145684423150933101	Eval/Curves/LoadCurvePowerRankDamageZero.defaults
+2	473332862738502891	Eval/Curves/LoadCurveBasePlayerCountCurve.defaults
+3	4168543061796328788	Eval/Curves/LoadCurveBaseMissileCountCurve.defaults
+4	4525656835710522494	Eval/Curves/LoadCurveItemLevelValueCurve.defaults
+5	5536728830561687091	Eval/Curves/LoadCurveBonusItemFindMultiplier.defaults
+6	6264516791574991637	Eval/Curves/LoadBaseMissileDelayCurve.defaults
+7	7727495370403025896	Eval/Curves/LoadCurveStaminaAdvancement.defaults
+8	9574075147897279656	Eval/Curves/LoadCurveHealthEndAdvancement.defaults
+9	13564355676282033082	Eval/Curves/LoadCurveBasePropertyCurve.defaults
+10	14073474263712994759	Eval/Curves/LoadCurveConditionDurationCurve.defaults
+11	14254346573431575033	Eval/Curves/LoadCurveSkillRankCost.defaults
+12	15012689430926464343	Eval/Curves/LoadCurveBaseThrowabilityCurve.defaults
+13	15031137850660426308	Eval/Curves/LoadCurveBaseRelicCurve.defaults

@@ -1,9 +1,0 @@
-Index	PrototypeId	Name
-0	0	
-1	4927220632031205875	Entity/Inventory/InventorySort/InventorySortCategory.defaults
-2	7209309535705570109	Entity/Inventory/InventorySort/InventorySortSubCategory.defaults
-3	7355168345148102960	Entity/Inventory/InventorySort/InventorySortRarity.defaults
-4	9932942346348730523	Entity/Inventory/InventorySort/InventorySortAlpha.defaults
-5	11351067578294408853	Entity/Inventory/InventorySort/InventorySort.defaults
-6	15696087644776634860	Entity/Inventory/InventorySort/InventorySortUsableBy.defaults
-7	18351706984228723292	Entity/Inventory/InventorySort/InventorySortItemLevel.defaults

@@ -1,0 +1,9 @@
+Index	PrototypeId	Name
+0	0	
+1	393473685466652246	AI/ProceduralAI/Prototypes/Profiles/Beetles/ExploderBeetleProfile.prototype
+2	4163775246403836772	AI/ProceduralAI/Prototypes/Profiles/Beetles/LavaBugProfile.prototype
+3	9854423145874136169	AI/ProceduralAI/Prototypes/Profiles/GhostRider/ScytheProfile.prototype
+4	12502316333093035204	AI/ProceduralAI/Prototypes/Profiles/HumanTorch/CycloneProfile.prototype
+5	13346800792435039648	AI/ProceduralAI/Blueprints/Profiles/ProceduralProfileSkirmisher.defaults
+6	13707136194705759278	AI/ProceduralAI/Prototypes/Profiles/Beetles/GasBeetleProfile.prototype
+7	15070191044924677273	AI/ProceduralAI/Prototypes/Profiles/Beetles/FireBeetleProfile.prototype

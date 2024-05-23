@@ -1,7 +1,0 @@
-Index	PrototypeId	Name
-0	0	
-1	8176203416085537643	AI/ProceduralAI/Prototypes/Overrides/AIOverrides/DefaultActiveOverrideProfile.prototype
-2	8923868548382794577	AI/ProceduralAI/Prototypes/Overrides/AIOverrides/Sauron/WanderOverrideProfile.prototype
-3	9309687649448699895	AI/ProceduralAI/Prototypes/Overrides/AIOverrides/DefaultActiveOverrideProfileLargeWander.prototype
-4	9882618892565684891	AI/ProceduralAI/Prototypes/Overrides/AIOverrides/RapidWanderOverrideProfile.prototype
-5	15558499739901175815	AI/ProceduralAI/Blueprints/Profiles/Overrides/AIOverrides/ProceduralProfileActiveOverride.defaults

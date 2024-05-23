@@ -1,0 +1,11 @@
+Index	PrototypeId	Name
+0	0	
+1	885118379462958276	Metagame/PvEWaveBase/PvEScaleBattle/PvEScaleBattleScoreSchema.prototype
+2	4379601383585354969	Metagame/HoloSim/HoloSimScoreSchemaRegion.prototype
+3	5261524186252253308	Metagame/XMansionDefense/XDefenseRegionScoreSchema.prototype
+4	5460190861220778638	Metagame/Blueprints/ScoreTableSchema.defaults
+5	10638190489096755333	Metagame/XMansionDefense/XDefensePlayerScoreSchema.prototype
+6	11267390953084034175	Metagame/PvEWaveBase/PvEWaveBattle/XDefensePlayerScoreSchema.prototype
+7	14919046005187089634	Metagame/HoloSim/HoloSimScoreSchemaPlayer.prototype
+8	15780407601110453639	Metagame/PvPScoreSchema.prototype
+9	18330743916786424858	Metagame/PvEWaveBase/PvEWaveBattle/PvEWaveBattleScoreSchema.prototype

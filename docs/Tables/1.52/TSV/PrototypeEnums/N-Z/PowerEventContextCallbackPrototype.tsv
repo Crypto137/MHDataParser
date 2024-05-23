@@ -1,6 +1,0 @@
-Index	PrototypeId	Name
-0	0	
-1	184542705206764935	Powers/Blueprints/PowerEvents/PowerEventCallbacks/PowerEventAIChangeBlackboardFact.defaults
-2	4259286212883716809	Powers/Blueprints/PowerEvents/PowerEventContextCallback.defaults
-3	5090480961920967454	Powers/Blueprints/PowerEvents/PowerEventCallbacks/AISummonsTryActivatePower.defaults
-4	11786501238885328389	Powers/Blueprints/PowerEvents/PowerEventCallbacks/PowerEventAISetAssistFromCreator.defaults

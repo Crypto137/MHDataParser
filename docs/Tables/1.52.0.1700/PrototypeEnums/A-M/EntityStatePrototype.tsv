@@ -1,0 +1,15 @@
+Index	PrototypeId	Name
+0	0	
+1	2597738357576830248	Entity/States/DoorOpen.prototype
+2	3998061935171079228	Entity/States/Closed.prototype
+3	4346481838913359798	Entity/States/TriggerSpawner.prototype
+4	5349377175605153264	Entity/States/DoorClosed.prototype
+5	6026076540545600372	Entity/States/Open.prototype
+6	6060052278742747984	Entity/States/Dead.prototype
+7	7790402707596971060	Entity/States/Locked.prototype
+8	9362164213640269137	Entity/DoorEntityState.defaults
+9	11678774941756361869	Entity/States/Enabled.prototype
+10	12316737635184414873	Entity/States/UnTriggerSpawner.prototype
+11	14848734635613359005	Entity/EntityState.defaults
+12	15123318969675353493	Entity/States/Destroyed.prototype
+13	17062905146348473594	Entity/States/Disabled.prototype

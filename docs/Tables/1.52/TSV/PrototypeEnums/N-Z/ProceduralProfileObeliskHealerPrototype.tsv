@@ -1,9 +1,0 @@
-Index	PrototypeId	Name
-0	0	
-1	1755039051087358082	AI/ProceduralAI/Prototypes/Profiles/Bosses/SurturRaid/FiveMan/ObeliskHealerProfileMiniboss.prototype
-2	2295292183459668379	AI/ProceduralAI/Prototypes/Profiles/AsgardGuards/ObeliskHealerLeftProfile.prototype
-3	5420648200673305102	AI/ProceduralAI/Prototypes/Profiles/AsgardGuards/ObeliskHealerRightProfile.prototype
-4	8735828586661094686	AI/ProceduralAI/Prototypes/Profiles/Bosses/SurturRaid/FiveMan/ObeliskHealerProfile.prototype
-5	8958013923716571773	AI/ProceduralAI/Prototypes/Profiles/AsgardGuards/ObeliskHealMinibossProfile.prototype
-6	11802464896313203366	AI/ProceduralAI/Blueprints/Profiles/Special/ObeliskHealer.defaults
-7	12267975981029139284	AI/ProceduralAI/Prototypes/Profiles/AsgardGuards/ObeliskHealerMinibossProfile.prototype

@@ -1,0 +1,24 @@
+Index	PrototypeId	Name
+0	0	
+1	1594351614410101282	Chat/ChatCommands/Emotes/EmotePoint.prototype
+2	2160618976702960726	Chat/ChatCommands/Emotes/EmoteChatCommand.defaults
+3	2303648301594252121	Chat/ChatCommands/Emotes/EmoteCongrats.prototype
+4	2697601306811503103	Chat/ChatCommands/Emotes/EmoteCheer.prototype
+5	2794842037288636742	Chat/ChatCommands/Emotes/EmoteCry.prototype
+6	4295968502061470016	Chat/ChatCommands/Emotes/EmoteBow.prototype
+7	7599243123214193264	Chat/ChatCommands/Emotes/EmoteAttack.prototype
+8	8409368401589572230	Chat/ChatCommands/Emotes/EmoteSalute.prototype
+9	8533777287244616196	Chat/ChatCommands/Emotes/EmoteBored.prototype
+10	9190821782746173653	Chat/ChatCommands/Emotes/EmoteNo.prototype
+11	10006143959848456839	Chat/ChatCommands/Emotes/EmoteListen.prototype
+12	10791955896155967996	Chat/ChatCommands/Emotes/EmoteAgree.prototype
+13	11302103053218746807	Chat/ChatCommands/Emotes/EmoteYawn.prototype
+14	11457708623398703603	Chat/ChatCommands/Emotes/EmoteDance.prototype
+15	14687459734349419017	Chat/ChatCommands/Emotes/EmoteLaugh.prototype
+16	14837552589829837551	Chat/ChatCommands/Emotes/EmoteRetreat.prototype
+17	15991120479105192924	Chat/ChatCommands/Emotes/EmoteVolunteer.prototype
+18	16532079894354203380	Chat/ChatCommands/Emotes/EmoteShowOff.prototype
+19	16739436795596050863	Chat/ChatCommands/Emotes/EmotePose.prototype
+20	17277704224799134123	Chat/ChatCommands/Emotes/EmoteWave.prototype
+21	17318889542961795690	Chat/ChatCommands/Emotes/EmoteBeckon.prototype
+22	18316937884951908781	Chat/ChatCommands/Emotes/EmoteWait.prototype
