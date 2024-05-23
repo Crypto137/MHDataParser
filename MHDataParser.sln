@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34024.191
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MHDataParser", "src\MHDataParser\MHDataParser.csproj", "{29EF1753-A0D0-40D4-A680-0C148C9CC2CD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MHDataParser", "src\MHDataParser\MHDataParser.csproj", "{29EF1753-A0D0-40D4-A680-0C148C9CC2CD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqliteGpakUnpacker", "SqliteGpakUnpacker\SqliteGpakUnpacker.csproj", "{0F4ADFA5-43D5-48C9-876E-F0FD0BAA6257}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{29EF1753-A0D0-40D4-A680-0C148C9CC2CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29EF1753-A0D0-40D4-A680-0C148C9CC2CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29EF1753-A0D0-40D4-A680-0C148C9CC2CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F4ADFA5-43D5-48C9-876E-F0FD0BAA6257}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F4ADFA5-43D5-48C9-876E-F0FD0BAA6257}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F4ADFA5-43D5-48C9-876E-F0FD0BAA6257}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F4ADFA5-43D5-48C9-876E-F0FD0BAA6257}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
