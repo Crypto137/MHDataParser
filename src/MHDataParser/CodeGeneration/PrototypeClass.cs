@@ -7,31 +7,60 @@ namespace MHDataParser.CodeGeneration
     {
         private readonly Dictionary<string, PrototypeField> _fieldDict = new();
 
-        public string ClassName { get; }
+        private readonly HashSet<string> _parents = new();
 
-        public PrototypeClass(string className)
+        public string Name { get; }
+
+        public PrototypeClass(string name)
         {
-            ClassName = className;
+            Name = name;
         }
 
         public void AddField(string fieldName, CalligraphyBaseType baseType, CalligraphyStructureType structureType, ulong subtype)
         {
-            _fieldDict.Add(fieldName, new(fieldName, baseType, structureType, subtype));
+            if (_fieldDict.ContainsKey(fieldName) == false)
+                _fieldDict.Add(fieldName, new(this, fieldName, baseType, structureType, subtype));
         }
 
-        public bool HasField(string fieldName)
+        public void AddParent(BlueprintId parentRef)
         {
-            return _fieldDict.ContainsKey(fieldName);
+            if (GameDatabase.IsPropertyMixinBlueprint(parentRef) == false)
+            {
+                string parentName = GameDatabase.GetBlueprintName(parentRef);
+
+                if (GameDatabase.BlueprintDict.TryGetValue(parentName, out Blueprint parent) == false)
+                {
+                    Console.WriteLine($"Failed to find parent blueprint {parentName} for {Name}");
+                    return;
+                }
+
+                if (parent.RuntimeBinding != Name && parent.RuntimeBinding != "Prototype")
+                    _parents.Add(parent.RuntimeBinding);
+            }
         }
 
         public string GenerateCode()
         {
             StringBuilder sb = new();
 
-            sb.AppendLine($@"public class {ClassName}");
+            string baseClass;
+            if (_parents.Count == 0)
+                baseClass = "Prototype";        // No parents (inherit from the base Prototype class)
+            else if (_parents.Count == 1)
+                baseClass = _parents.First();   // Only a single parent, so we can be certain it's the one
+            else
+            {
+                // If we have multiple parents, we will default to Prototype, but list all potential parents as comments
+                Console.WriteLine($"{Name} has multiple potential parents:{_parents.Aggregate(string.Empty, (current, next) => $"{current} {next}")}");
+                baseClass = "Prototype";
+                foreach (string parentName in _parents)
+                    sb.AppendLine($"// {parentName}");
+            }
+
+            sb.AppendLine($@"public class {Name} : {baseClass}");
             sb.AppendLine("{");
             // Sort fields for consistent output between versions so that we can more easily compare
-            foreach (PrototypeField field in _fieldDict.Values.OrderBy(field => field.FieldName))
+            foreach (PrototypeField field in _fieldDict.Values.OrderBy(field => field.Name))
                 sb.AppendLine($"\t{field.GenerateCode()}");
             sb.AppendLine("}");
 

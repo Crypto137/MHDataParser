@@ -18,11 +18,11 @@ namespace MHDataParser.CodeGeneration
                     prototypeClassDict.Add(runtimeBinding, prototypeClass);
                 }
 
+                foreach (BlueprintReference blueprintRef in blueprint.Parents)
+                    prototypeClass.AddParent(blueprintRef.BlueprintId);
+
                 foreach (BlueprintMember member in blueprint.Members)
-                {
-                    if (prototypeClass.HasField(member.FieldName) == false)
-                        prototypeClass.AddField(member.FieldName, member.BaseType, member.StructureType, member.Subtype);
-                }
+                    prototypeClass.AddField(member.FieldName, member.BaseType, member.StructureType, member.Subtype);
             }
 
             Console.WriteLine($"Found {prototypeClassDict.Count} unique runtime bindings");
@@ -31,7 +31,7 @@ namespace MHDataParser.CodeGeneration
             using (StreamWriter writer = new(outputPath))
             {
                 // Sort classes for consistent output between versions so that we can more easily compare
-                foreach (PrototypeClass prototypeClass in prototypeClassDict.Values.OrderBy(prototypeClass => prototypeClass.ClassName))
+                foreach (PrototypeClass prototypeClass in prototypeClassDict.Values.OrderBy(prototypeClass => prototypeClass.Name))
                     writer.WriteLine(prototypeClass.GenerateCode());
             }
         }

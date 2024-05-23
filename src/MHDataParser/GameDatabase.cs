@@ -18,6 +18,8 @@ namespace MHDataParser
 
         private static readonly Dictionary<StringId, AssetTypeId> _assetIdToAssetTypeDict = new();
 
+        private static readonly HashSet<BlueprintId> _propertyMixinBlueprints = new();
+
         private static readonly PakFile _calligraphyPak;
         private static readonly PakFile _resourcePak;
 
@@ -100,9 +102,15 @@ namespace MHDataParser
             // Load blueprints
             foreach (BlueprintRecord record in BlueprintDirectory.Records)
             {
+                // Add to property mixin lookup if needed
+                if (record.FilePath.StartsWith("Property/Mixin/", StringComparison.Ordinal))
+                    _propertyMixinBlueprints.Add(record.Id);
+
                 Blueprint blueprint = new(_calligraphyPak.GetFile($"Calligraphy/{record.FilePath}"));
                 BlueprintDict.Add(record.FilePath, blueprint);
             }
+
+            Console.WriteLine($"Found {_propertyMixinBlueprints.Count} property mixin blueprints");
             Console.WriteLine($"Parsed {BlueprintDict.Count} blueprints");
 
             // Load Calligraphy prototypes
@@ -194,6 +202,11 @@ namespace MHDataParser
         public static string GetBlueprintName(BlueprintId blueprintId) => BlueprintRefManager.GetReferenceName(blueprintId);
         public static string GetBlueprintFieldName(StringId fieldId) => StringRefManager.GetReferenceName(fieldId);
         public static string GetPrototypeName(PrototypeId prototypeId) => PrototypeRefManager.GetReferenceName(prototypeId);
+
+        public static bool IsPropertyMixinBlueprint(BlueprintId blueprintId)
+        {
+            return _propertyMixinBlueprints.Contains(blueprintId);
+        }
 
         public static void AddAssetIdLookup(StringId assetId, AssetTypeId assetTypeId)
         {
