@@ -449,6 +449,42 @@ namespace MHDataParser
                 prototypeEnumList.Count, entityPrototypeEnumList.Count, inventoryPrototypeEnumList.Count, powerPrototypeEnumList.Count));
         }
 
+        public static void ExportBlueprintEnums()
+        {
+            // Test implementation, does not take blueprint hierarchy into account, but can be useful for standalone blueprints
+            Console.WriteLine("Exporting blueprint enums...");
+
+            Dictionary<BlueprintId, List<PrototypeId>> blueprintEnumDict = new();
+
+            foreach (PrototypeRecord record in PrototypeDirectory.Records)
+            {
+                if (blueprintEnumDict.TryGetValue((BlueprintId)record.BlueprintId, out List<PrototypeId> list) == false)
+                {
+                    list = new() { PrototypeId.Invalid };
+                    blueprintEnumDict.Add((BlueprintId)record.BlueprintId, list);
+                }
+
+                list.Add(record.Id);
+            }
+
+            foreach (var kvp in blueprintEnumDict)
+            {
+                kvp.Value.Sort();
+
+                string filePath = Path.Combine(OutputDirectory, "BlueprintEnums", $"{GetBlueprintName(kvp.Key)}.tsv");
+                string dir = Path.GetDirectoryName(filePath);
+                if (Directory.Exists(dir) == false) Directory.CreateDirectory(dir);
+
+                using (StreamWriter writer = new(filePath))
+                {
+                    foreach (PrototypeId id in kvp.Value)
+                        writer.WriteLine($"{(ulong)id}\t{GetPrototypeName(id)}");
+                }
+            }
+
+            Console.WriteLine("Done");
+        }
+
         public static void GeneratePrototypeClasses()
         {
             Console.WriteLine("Generating prototype classes...");

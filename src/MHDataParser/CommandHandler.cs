@@ -30,6 +30,7 @@
                 case "export-uis":              OnExportUIs();          break;
 
                 case "export-prototype-enums":      OnExportPrototypeEnums(); break;
+                case "export-blueprint-enums":      OnExportBlueprintEnums(); break;
                 case "generate-prototype-classes":  OnGeneratePrototypeClasses(); break;
 
                 case "export-locales":          OnExportLocales();      break;
@@ -70,6 +71,7 @@
             Console.WriteLine("export-uis: Exports parsed UIs as JSON.");
 
             Console.WriteLine("export-prototype-enums: Exports Calligraphy prototype hierarchy cache enums needed for archive serialization.");
+            Console.WriteLine("export-blueprint-enums: Exports Calligraphy blueprint hierarchy cache enums needed for property params.");
             Console.WriteLine("generate-prototype-classes: Generates C# classes from prototype blueprints.");
 
             Console.WriteLine();
@@ -120,6 +122,7 @@
         private static void OnExportUIs() => GameDatabase.ExportUIs();
 
         private static void OnExportPrototypeEnums() => GameDatabase.ExportPrototypeEnums();
+        private static void OnExportBlueprintEnums() => GameDatabase.ExportBlueprintEnums();
         private static void OnGeneratePrototypeClasses() => GameDatabase.GeneratePrototypeClasses();
 
         private static void OnExportLocales() => GameDatabase.ExportLocales();
