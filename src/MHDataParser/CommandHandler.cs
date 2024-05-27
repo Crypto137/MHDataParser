@@ -1,130 +1,141 @@
-﻿namespace MHDataParser
+﻿using System.Reflection;
+
+namespace MHDataParser
 {
     public static class CommandHandler
     {
-        public static void HandleCommand(string command)
+        private static readonly Dictionary<string, (Action, string)> _commandDict = new();
+
+        static CommandHandler()
         {
-            switch (command.ToLower())
+            foreach (MethodInfo method in typeof(CommandHandler).GetMethods(BindingFlags.Static | BindingFlags.NonPublic))
             {
-                case "help":                    OnHelp();               break;
+                if (method.IsDefined(typeof(CommandAttribute)) == false) continue;
 
-                case "extract-pak":             OnExtractPak();         break;
-                case "extract-pak-entries":     OnExtractPakEntries();  break;
-                case "extract-pak-data":        OnExtractPakData();     break;
+                var attribute = method.GetCustomAttribute<CommandAttribute>();
+                if (attribute == null) continue;
 
-                case "export-all-data":         OnExportAllData();      break;
-
-                case "export-calligraphy":      OnExportCalligraphy();  break;
-                case "export-directories":      OnExportDirectories();  break;
-                case "export-curves":           OnExportCurves();       break;
-                case "export-asset-types":      OnExportAssetTypes();   break;
-                case "export-blueprints":       OnExportBlueprints();   break;
-                case "export-prototypes":       OnExportPrototypes();   break;
-
-                case "export-resources":        OnExportResources();    break;
-                case "export-cells":            OnExportCells();        break;
-                case "export-districts":        OnExportDistricts();    break;
-                case "export-encounters":       OnExportEncounters();   break;
-                case "export-props":            OnExportProps();        break;
-                case "export-prop-sets":        OnExportPropSets();     break;
-                case "export-uis":              OnExportUIs();          break;
-
-                case "export-prototype-enums":      OnExportPrototypeEnums(); break;
-                case "export-blueprint-enums":      OnExportBlueprintEnums(); break;
-                case "generate-prototype-classes":  OnGeneratePrototypeClasses(); break;
-
-                case "export-locales":          OnExportLocales();      break;
-
-                default: Console.WriteLine($"Command '{command}' does not exist"); break;
+                _commandDict[attribute.Name] = (method.CreateDelegate<Action>(), attribute.Description);
             }
         }
 
-        private static void OnHelp()
+        public static void HandleCommand(string command)
+        {
+            if (_commandDict.TryGetValue(command.ToLower(), out var commandEntry) == false)
+            {
+                Console.WriteLine($"Command '{command}' does not exist");
+                return;
+            }
+
+            commandEntry.Item1();
+        }
+
+        #region Command Implementations
+
+        [Command("help", "Prints command list.")]
+        private static void Help()
         {
             Console.WriteLine("\tCommand List");
 
-            Console.WriteLine("extract-pak: Extracts all entries and data from loaded pak files.");
-            Console.WriteLine("extract-pak-entries: Extracts all entries from loaded pak files.");
-            Console.WriteLine("extract-pak-data: Extracts all data from loaded pak files.");
-
-            Console.WriteLine();
-
-            Console.WriteLine("export-all-data: Exports all parsed data.");
-
-            Console.WriteLine();
-
-            Console.WriteLine("export-calligraphy: Exports parsed Calligraphy data (directories, curves, asset types, blueprints, and prototypes).");
-            Console.WriteLine("export-directories: Exports parsed directories as TSV.");
-            Console.WriteLine("export-curves: Exports parsed curves as TSV.");
-            Console.WriteLine("export-asset-types: Exports parsed asset types as JSON.");
-            Console.WriteLine("export-blueprints: Exports parsed blueprints as JSON.");
-            Console.WriteLine("export-prototypes: Exports parsed prototypes as JSON.");
-
-            Console.WriteLine();
-
-            Console.WriteLine("export-resources: Exports parsed resource data (cells, districts, encounters, props, prop sets, and UIs.");
-            Console.WriteLine("export-cells: Exports parsed cells as JSON.");
-            Console.WriteLine("export-districts: Exports parsed districts as JSON.");
-            Console.WriteLine("export-encounters: Exports parsed encounters as JSON.");
-            Console.WriteLine("export-props: Exports parsed props as JSON.");
-            Console.WriteLine("export-prop-sets: Exports parsed prop sets as JSON.");
-            Console.WriteLine("export-uis: Exports parsed UIs as JSON.");
-
-            Console.WriteLine("export-prototype-enums: Exports Calligraphy prototype hierarchy cache enums needed for archive serialization.");
-            Console.WriteLine("export-blueprint-enums: Exports Calligraphy blueprint hierarchy cache enums needed for property params.");
-            Console.WriteLine("generate-prototype-classes: Generates C# classes from prototype blueprints.");
-
-            Console.WriteLine();
-
-            Console.WriteLine("export-locales: Exports parsed locales with all of their strings as JSON.");
+            foreach (var kvp in _commandDict)
+                Console.WriteLine($"{kvp.Key}: {kvp.Value.Item2}");
         }
 
-        private static void OnExtractPak() => GameDatabase.ExtractPak(true, true);
-        private static void OnExtractPakEntries() => GameDatabase.ExtractPak(true, false);
-        private static void OnExtractPakData() => GameDatabase.ExtractPak(false, true);
-        
-        private static void OnExportAllData()
+        [Command("extract-pak", "Extracts all entries and data from loaded pak files.")]
+        private static void ExtractPak() => GameDatabase.ExtractPak(true, true);
+
+        [Command("extract-pak-entries", "Extracts all entries from loaded pak files.")]
+        private static void ExtractPakEntries() => GameDatabase.ExtractPak(true, false);
+
+        [Command("extract-pak-data", "Extracts all data from loaded pak files.")]
+        private static void ExtractPakData() => GameDatabase.ExtractPak(false, true);
+
+        [Command("export-all-data", "Exports all parsed Calligraphy and resource data.")]
+        private static void ExportAllData()
         {
-            OnExportCalligraphy();
-            OnExportResources();
+            ExportCalligraphy();
+            ExportResources();
         }
 
-        private static void OnExportCalligraphy()
+        [Command("export-calligraphy", "Exports parsed Calligraphy data (directories, curves, asset types, blueprints, and prototypes).")]
+        private static void ExportCalligraphy()
         {
-            OnExportDirectories();
-            OnExportCurves();
-            OnExportAssetTypes();
-            OnExportBlueprints();
-            OnExportPrototypes();
+            ExportDirectories();
+            ExportCurves();
+            ExportAssetTypes();
+            ExportBlueprints();
+            ExportPrototypes();
         }
 
-        private static void OnExportDirectories() => GameDatabase.ExportDirectories();
-        private static void OnExportCurves() => GameDatabase.ExportCurves();
-        private static void OnExportAssetTypes() => GameDatabase.ExportAssetTypes();
-        private static void OnExportBlueprints() => GameDatabase.ExportBlueprints();
-        private static void OnExportPrototypes() => GameDatabase.ExportPrototypes();
+        [Command("export-directories", "Exports parsed directories as TSV.")]
+        private static void ExportDirectories() => GameDatabase.ExportDirectories();
 
-        private static void OnExportResources()
+        [Command("export-curves", "Exports parsed curves as TSV.")]
+        private static void ExportCurves() => GameDatabase.ExportCurves();
+
+        [Command("export-asset-types", "Exports parsed asset types as JSON.")]
+        private static void ExportAssetTypes() => GameDatabase.ExportAssetTypes();
+
+        [Command("export-blueprints", "Exports parsed blueprints as JSON.")]
+        private static void ExportBlueprints() => GameDatabase.ExportBlueprints();
+
+        [Command("export-prototypes", "Exports parsed prototypes as JSON.")]
+        private static void ExportPrototypes() => GameDatabase.ExportPrototypes();
+
+        [Command("export-resources", "Exports parsed resource data (cells, districts, encounters, props, prop sets, and UIs).")]
+        private static void ExportResources()
         {
-            OnExportCells();
-            OnExportDistricts();
-            OnExportEncounters();
-            OnExportProps();
-            OnExportPropSets();
-            OnExportUIs();
+            ExportCells();
+            ExportDistricts();
+            ExportEncounters();
+            ExportProps();
+            ExportPropSets();
+            ExportUIs();
         }
 
-        private static void OnExportCells() => GameDatabase.ExportCells();
-        private static void OnExportDistricts() => GameDatabase.ExportDistricts();
-        private static void OnExportEncounters() => GameDatabase.ExportEncounters();
-        private static void OnExportProps() => GameDatabase.ExportProps();
-        private static void OnExportPropSets() => GameDatabase.ExportPropSets();
-        private static void OnExportUIs() => GameDatabase.ExportUIs();
+        [Command("export-cells", "Exports parsed cells as JSON.")]
+        private static void ExportCells() => GameDatabase.ExportCells();
 
-        private static void OnExportPrototypeEnums() => GameDatabase.ExportPrototypeEnums();
-        private static void OnExportBlueprintEnums() => GameDatabase.ExportBlueprintEnums();
-        private static void OnGeneratePrototypeClasses() => GameDatabase.GeneratePrototypeClasses();
+        [Command("export-districts", "Exports parsed districts as JSON.")]
+        private static void ExportDistricts() => GameDatabase.ExportDistricts();
 
-        private static void OnExportLocales() => GameDatabase.ExportLocales();
+        [Command("export-encounters", "Exports parsed encounters as JSON.")]
+        private static void ExportEncounters() => GameDatabase.ExportEncounters();
+
+        [Command("export-props", "Exports parsed props as JSON.")]
+        private static void ExportProps() => GameDatabase.ExportProps();
+
+        [Command("export-prop-sets", "Exports parsed prop sets as JSON.")]
+        private static void ExportPropSets() => GameDatabase.ExportPropSets();
+
+        [Command("export-uis", "Exports parsed UIs as JSON.")]
+        private static void ExportUIs() => GameDatabase.ExportUIs();
+
+        [Command("export-prototype-enums", "Exports Calligraphy prototype hierarchy cache enums needed for archive serialization.")]
+        private static void ExportPrototypeEnums() => GameDatabase.ExportPrototypeEnums();
+
+        [Command("export-blueprint-enums", "Exports Calligraphy blueprint hierarchy cache enums needed for property params.")]
+        private static void ExportBlueprintEnums() => GameDatabase.ExportBlueprintEnums();
+
+        [Command("generate-prototype-classes", "Generates C# classes from prototype blueprints.")]
+        private static void GeneratePrototypeClasses() => GameDatabase.GeneratePrototypeClasses();
+
+        [Command("export-locales", "Exports parsed locales with all of their strings as JSON.")]
+        private static void ExportLocales() => GameDatabase.ExportLocales();
+
+        #endregion
+
+        [AttributeUsage(AttributeTargets.Method)]
+        private class CommandAttribute : Attribute
+        {
+            public string Name { get; }
+            public string Description { get; }
+
+            public CommandAttribute(string name, string description)
+            {
+                Name = name.ToLower();
+                Description = description;
+            }
+        }
     }
 }
