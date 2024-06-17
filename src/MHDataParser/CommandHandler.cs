@@ -117,6 +117,9 @@ namespace MHDataParser
         [Command("export-blueprint-enums", "Exports Calligraphy blueprint hierarchy cache enums needed for property params.")]
         private static void ExportBlueprintEnums() => GameDatabase.ExportBlueprintEnums();
 
+        [Command("export-property-info-table", "Exports data from property info prototypes to a TSV file.")]
+        private static void ExportPropertyInfoTable() => GameDatabase.ExportPropertyInfoTable();
+
         [Command("generate-prototype-classes", "Generates C# classes from prototype blueprints.")]
         private static void GeneratePrototypeClasses() => GameDatabase.GeneratePrototypeClasses();
 

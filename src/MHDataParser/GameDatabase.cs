@@ -19,6 +19,7 @@ namespace MHDataParser
         private static readonly Dictionary<StringId, AssetTypeId> _assetIdToAssetTypeDict = new();
 
         private static readonly HashSet<BlueprintId> _propertyMixinBlueprints = new();
+        private static readonly List<string> _propertyInfoPrototypes = new();
 
         private static readonly PakFile _calligraphyPak;
         private static readonly PakFile _resourcePak;
@@ -102,12 +103,16 @@ namespace MHDataParser
             // Load blueprints
             foreach (BlueprintRecord record in BlueprintDirectory.Records)
             {
+                Blueprint blueprint = new(_calligraphyPak.GetFile($"Calligraphy/{record.FilePath}"));
+                BlueprintDict.Add(record.FilePath, blueprint);
+
                 // Add to property mixin lookup if needed
                 if (record.FilePath.StartsWith("Property/Mixin/", StringComparison.Ordinal))
                     _propertyMixinBlueprints.Add(record.Id);
 
-                Blueprint blueprint = new(_calligraphyPak.GetFile($"Calligraphy/{record.FilePath}"));
-                BlueprintDict.Add(record.FilePath, blueprint);
+                // Property info
+                if (record.FilePath.StartsWith("Property/Info/", StringComparison.Ordinal))
+                    _propertyInfoPrototypes.Add(record.FilePath.Replace(".blueprint", ".defaults"));
             }
 
             Console.WriteLine($"Found {_propertyMixinBlueprints.Count} property mixin blueprints");
@@ -491,6 +496,38 @@ namespace MHDataParser
             if (Directory.Exists(OutputDirectory) == false) Directory.CreateDirectory(OutputDirectory);
             string filePath = Path.Combine(OutputDirectory, "Prototypes.cs");
             PrototypeClassGenerator.Generate(filePath);
+            Console.WriteLine("Done");
+        }
+
+        public static void ExportPropertyInfoTable()
+        {
+            PropertyInfoTable propertyInfoTable = new();
+
+            foreach (string propertyInfoPrototypeName in _propertyInfoPrototypes)
+            {
+                if (PrototypeDict.TryGetValue(propertyInfoPrototypeName, out PrototypeFile prototypeFile) == false)
+                {
+                    Console.WriteLine($"Property info prototype {propertyInfoPrototypeName} not found");
+                    continue;
+                }
+
+                foreach (PrototypeSimpleField field in prototypeFile.Prototype.FieldGroups[0].SimpleFields)
+                {
+                    if (GetBlueprintFieldName(field.Id) == "Type")
+                    {
+                        if (Enum.TryParse(GetAssetName((StringId)field.Value), out PropertyDataType dataType) == false)
+                        {
+                            Console.WriteLine($"Failed to parse data type for property info {propertyInfoPrototypeName}");
+                            break;
+                        }
+
+                        propertyInfoTable.Add(Path.GetFileNameWithoutExtension(propertyInfoPrototypeName), dataType);
+                        break;
+                    }
+                }
+            }
+
+            propertyInfoTable.SaveToFile(Path.Combine(OutputDirectory, "PropertyInfoTable.tsv"));
             Console.WriteLine("Done");
         }
 
