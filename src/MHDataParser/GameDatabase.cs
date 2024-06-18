@@ -396,6 +396,27 @@ namespace MHDataParser
             Console.WriteLine("Done");
         }
 
+        public static void ExportAssetRefs()
+        {
+            List<StringId> assetRefList = new();
+            foreach (AssetType assetType in AssetTypeDict.Values)
+            {
+                foreach (Asset asset in assetType.Assets)
+                    assetRefList.Add(asset.Id);
+            }
+
+            assetRefList.Sort();
+
+            using (FileStream fileStream = File.OpenWrite(Path.Combine(OutputDirectory, "Assets.tsv")))
+            using (StreamWriter writer = new(fileStream))
+            {
+                foreach (StringId assetRef in assetRefList)
+                    writer.WriteLine($"{(ulong)assetRef}\t{GetAssetName(assetRef)}");
+            }
+
+            Console.WriteLine($"Exported {assetRefList.Count} asset data references");
+        }
+
         public static void ExportPrototypeEnums()
         {
             Console.WriteLine("Exporting prototype enums...");

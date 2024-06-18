@@ -123,6 +123,9 @@ namespace MHDataParser
         [Command("generate-prototype-classes", "Generates C# classes from prototype blueprints.")]
         private static void GeneratePrototypeClasses() => GameDatabase.GeneratePrototypeClasses();
 
+        [Command("export-asset-refs", "Exports asset data references to TSV.")]
+        private static void ExportAssetRefs() => GameDatabase.ExportAssetRefs();
+
         [Command("export-locales", "Exports parsed locales with all of their strings as JSON.")]
         private static void ExportLocales() => GameDatabase.ExportLocales();
 
