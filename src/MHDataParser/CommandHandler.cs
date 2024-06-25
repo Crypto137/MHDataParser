@@ -114,6 +114,9 @@ namespace MHDataParser
         [Command("export-prototype-enums", "Exports Calligraphy prototype hierarchy cache enums needed for archive serialization.")]
         private static void ExportPrototypeEnums() => GameDatabase.ExportPrototypeEnums();
 
+        [Command("export-prototype-runtime-bindings", "Exports prototype runtime bindings.")]
+        private static void ExportPrototypeRuntimeBindings() => GameDatabase.ExportPrototypeRuntimeBindings();
+
         [Command("export-blueprint-enums", "Exports Calligraphy blueprint hierarchy cache enums needed for property params.")]
         private static void ExportBlueprintEnums() => GameDatabase.ExportBlueprintEnums();
 

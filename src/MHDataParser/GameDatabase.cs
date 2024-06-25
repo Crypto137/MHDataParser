@@ -475,6 +475,25 @@ namespace MHDataParser
                 prototypeEnumList.Count, entityPrototypeEnumList.Count, inventoryPrototypeEnumList.Count, powerPrototypeEnumList.Count));
         }
 
+        public static void ExportPrototypeRuntimeBindings()
+        {
+            string filePath = Path.Combine(OutputDirectory, $"PrototypeRuntimeBindings.tsv");
+            string dir = Path.GetDirectoryName(filePath);
+            if (Directory.Exists(dir) == false) Directory.CreateDirectory(dir);
+
+            using (StreamWriter writer = new(filePath))
+            {
+                foreach (var record in PrototypeDirectory.Records)
+                {
+                    PrototypeRecord prototypeRecord = (PrototypeRecord)record;
+                    Blueprint blueprint = BlueprintDict[GetBlueprintName((BlueprintId)prototypeRecord.BlueprintId)];
+                    writer.WriteLine($"{(ulong)prototypeRecord.Id}\t{blueprint.RuntimeBinding}");
+                }
+            }
+
+            Console.Write("Done");
+        }
+
         public static void ExportBlueprintEnums()
         {
             // Test implementation, does not take blueprint hierarchy into account, but can be useful for standalone blueprints
