@@ -10,14 +10,14 @@ namespace MHDataParser.FileFormats
         public MarkerSetPrototype MarkerSet { get; }                 // Size is always 0 in all of our files
         public PathCollectionPrototype PathCollection { get; }
 
-        public DistrictPrototype(byte[] data)
+        public DistrictPrototype(byte[] data, bool useLegacyFormat)
         {
             using (MemoryStream stream = new(data))
             using (BinaryReader reader = new(stream))
             {
                 Header = new(reader);
-                CellMarkerSet = new(reader);
-                MarkerSet = new(reader);
+                CellMarkerSet = new(reader, useLegacyFormat);
+                MarkerSet = new(reader, useLegacyFormat);
                 PathCollection = new(reader);
             }
         }

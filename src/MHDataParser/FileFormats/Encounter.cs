@@ -11,7 +11,7 @@ namespace MHDataParser.FileFormats
         public MarkerSetPrototype MarkerSet { get; }
         public NaviPatchSourcePrototype NaviPatchSource { get; }
 
-        public EncounterPrototype(byte[] data)
+        public EncounterPrototype(byte[] data, bool useLegacyFormat)
         {
             using (MemoryStream stream = new(data))
             using (BinaryReader reader = new(stream))
@@ -19,7 +19,7 @@ namespace MHDataParser.FileFormats
                 Header = new(reader);
                 PopulationMarkerGuid = (PrototypeGuid)reader.ReadUInt64();
                 ClientMap = reader.ReadFixedString32();
-                MarkerSet = new(reader);
+                MarkerSet = new(reader, useLegacyFormat);
                 NaviPatchSource = new(reader);
             }
         }

@@ -26,7 +26,7 @@ namespace MHDataParser.Prototypes.Markers
         [JsonPropertyOrder(14)]
         public string LastKnownFilterName { get; }
 
-        public EntityMarkerPrototype(BinaryReader reader)
+        public EntityMarkerPrototype(BinaryReader reader, bool useLegacyFormat)
         {
             ProtoNameHash = ResourcePrototypeHash.EntityMarkerPrototype;
 
@@ -41,8 +41,12 @@ namespace MHDataParser.Prototypes.Markers
             EncounterSpawnPhase = reader.ReadUInt32();
             OverrideSnapToFloor = reader.ReadByte();
             OverrideSnapToFloorValue = reader.ReadByte();
-            FilterGuid = (PrototypeGuid)reader.ReadUInt64();
-            LastKnownFilterName = reader.ReadFixedString32();
+
+            if (useLegacyFormat == false)
+            {
+                FilterGuid = (PrototypeGuid)reader.ReadUInt64();
+                LastKnownFilterName = reader.ReadFixedString32();
+            }
 
             Position = new(reader);
             Rotation = new(reader);

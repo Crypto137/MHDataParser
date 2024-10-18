@@ -20,14 +20,14 @@ namespace MHDataParser.Prototypes.Markers
     {
         public MarkerPrototype[] Markers { get; }
 
-        public MarkerSetPrototype(BinaryReader reader)
+        public MarkerSetPrototype(BinaryReader reader, bool useLegacyFormat)
         {
             Markers = new MarkerPrototype[reader.ReadInt32()];
             for (int i = 0; i < Markers.Length; i++)
-                Markers[i] = ReadMarkerPrototype(reader);
+                Markers[i] = ReadMarkerPrototype(reader, useLegacyFormat);
         }
 
-        private MarkerPrototype ReadMarkerPrototype(BinaryReader reader)
+        private MarkerPrototype ReadMarkerPrototype(BinaryReader reader, bool useLegacyFormat)
         {
             ResourcePrototypeHash hash = (ResourcePrototypeHash)reader.ReadUInt32();
 
@@ -38,7 +38,7 @@ namespace MHDataParser.Prototypes.Markers
                 case ResourcePrototypeHash.DotCornerMarkerPrototype:
                     return new DotCornerMarkerPrototype(reader);
                 case ResourcePrototypeHash.EntityMarkerPrototype:
-                    return new EntityMarkerPrototype(reader);
+                    return new EntityMarkerPrototype(reader, useLegacyFormat);
                 case ResourcePrototypeHash.RoadConnectionMarkerPrototype:
                     return new RoadConnectionMarkerPrototype(reader);
                 case ResourcePrototypeHash.ResourceMarkerPrototype:

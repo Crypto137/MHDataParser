@@ -135,11 +135,9 @@ namespace MHDataParser
             Console.WriteLine($"Parsed {PrototypeDict.Count} Calligraphy prototypes");
 
             // Ugly goto skip for unsupported file formats for now
-            if (PrototypeDirectory.Header.Version == 10)
-            {
-                Console.WriteLine("Legacy format detected, skipping the resource prototypes and locales");
-                goto V10Skip;
-            }
+            bool useLegacyFormat = PrototypeDirectory.Header.Version == 10;
+            if (useLegacyFormat)
+                Console.WriteLine("Legacy format detected");
 
             // Load resource prototypes
             foreach (PakEntry entry in _resourcePak.Entries)
@@ -149,19 +147,19 @@ namespace MHDataParser
                 switch (Path.GetExtension(entry.FilePath))
                 {
                     case ".cell":
-                        CellDict.Add(entry.FilePath, new(entry.Data));
+                        CellDict.Add(entry.FilePath, new(entry.Data, useLegacyFormat));
                         break;
                     case ".district":
-                        DistrictDict.Add(entry.FilePath, new(entry.Data));
+                        DistrictDict.Add(entry.FilePath, new(entry.Data, useLegacyFormat));
                         break;
                     case ".encounter":
-                        EncounterDict.Add(entry.FilePath, new(entry.Data));
+                        EncounterDict.Add(entry.FilePath, new(entry.Data, useLegacyFormat));
                         break;
                     case ".propset":
                         PropSetDict.Add(entry.FilePath, new(entry.Data));
                         break;
                     case ".prop":
-                        PropDict.Add(entry.FilePath, new(entry.Data));
+                        PropDict.Add(entry.FilePath, new(entry.Data, useLegacyFormat));
                         break;
                     case ".ui":
                         UIDict.Add(entry.FilePath, new(entry.Data));
@@ -177,40 +175,45 @@ namespace MHDataParser
             Console.WriteLine($"Parsed {UIDict.Count} UI prototypes");
 
             // Load locales
-            Console.WriteLine($"Loading locales...");
-
-            foreach (string localePath in Directory.GetFiles(LocoPath))
+            if (useLegacyFormat == false)
             {
-                if (Path.GetExtension(localePath) != ".locale")
+                Console.WriteLine($"Loading locales...");
+
+                foreach (string localePath in Directory.GetFiles(LocoPath))
                 {
-                    Console.WriteLine($"Found unknown file {Path.GetFileName(localePath)} in the Loco directory! Skipping...");
-                    continue;
-                }
-
-                Locale locale = new(File.ReadAllBytes(localePath));
-                Console.WriteLine($"Detected locale: {locale.Name}");
-
-                // Load string files for this locale
-                string stringFileDir = Path.Combine(LocoPath, locale.Directory);
-
-                foreach (string stringFilePath in Directory.GetFiles(stringFileDir))
-                {
-                    if (Path.GetExtension(stringFilePath) != ".string")
+                    if (Path.GetExtension(localePath) != ".locale")
                     {
-                        Console.WriteLine($"Found unknown file {Path.GetFileName(localePath)} in the string file directory for locale {locale.Name}! Skipping...");
+                        Console.WriteLine($"Found unknown file {Path.GetFileName(localePath)} in the Loco directory! Skipping...");
                         continue;
                     }
 
-                    StringFile stringFile = new(File.ReadAllBytes(stringFilePath));
-                    locale.AddStringFile(stringFile);
+                    Locale locale = new(File.ReadAllBytes(localePath));
+                    Console.WriteLine($"Detected locale: {locale.Name}");
+
+                    // Load string files for this locale
+                    string stringFileDir = Path.Combine(LocoPath, locale.Directory);
+
+                    foreach (string stringFilePath in Directory.GetFiles(stringFileDir))
+                    {
+                        if (Path.GetExtension(stringFilePath) != ".string")
+                        {
+                            Console.WriteLine($"Found unknown file {Path.GetFileName(localePath)} in the string file directory for locale {locale.Name}! Skipping...");
+                            continue;
+                        }
+
+                        StringFile stringFile = new(File.ReadAllBytes(stringFilePath));
+                        locale.AddStringFile(stringFile);
+                    }
+
+                    LocaleDict.Add(Path.GetFileName(localePath), locale);
                 }
 
-                LocaleDict.Add(Path.GetFileName(localePath), locale);
+                Console.WriteLine($"Loaded {LocaleDict.Count} locales");
             }
-
-            Console.WriteLine($"Loaded {LocaleDict.Count} locales");
-
-            V10Skip:
+            else
+            {
+                Console.WriteLine("Legacy locales are not supported, skipping");
+            }
 
             // Finish game database initialization
             stopwatch.Stop();

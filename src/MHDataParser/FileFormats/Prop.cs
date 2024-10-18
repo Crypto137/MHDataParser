@@ -9,7 +9,7 @@ namespace MHDataParser.FileFormats
         public ResourceHeader Header { get; }
         public ProceduralPropGroupPrototype[] PropGroups { get; }
 
-        public PropPackagePrototype(byte[] data)
+        public PropPackagePrototype(byte[] data, bool useLegacyFormat)
         {
             using (MemoryStream stream = new(data))
             using (BinaryReader reader = new(stream))
@@ -18,7 +18,7 @@ namespace MHDataParser.FileFormats
 
                 PropGroups = new ProceduralPropGroupPrototype[reader.ReadUInt32()];
                 for (int i = 0; i < PropGroups.Length; i++)
-                    PropGroups[i] = new(reader);
+                    PropGroups[i] = new(reader, useLegacyFormat);
             }
         }
     }
@@ -36,14 +36,14 @@ namespace MHDataParser.FileFormats
         public ushort RandomRotationDegrees { get; }
         public ushort RandomPosition { get; }
 
-        public ProceduralPropGroupPrototype(BinaryReader reader)
+        public ProceduralPropGroupPrototype(BinaryReader reader, bool useLegacyFormat)
         {
             ProtoNameHash = (ResourcePrototypeHash)reader.ReadUInt32();
             NameId = reader.ReadFixedString32();
             PrefabPath = reader.ReadFixedString32();
             MarkerPosition = new(reader);
             MarkerRotation = new(reader);
-            Objects = new(reader);
+            Objects = new(reader, useLegacyFormat);
             NaviPatchSource = new(reader);
             RandomRotationDegrees = reader.ReadUInt16();
             RandomPosition = reader.ReadUInt16();

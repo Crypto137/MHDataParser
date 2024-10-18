@@ -23,7 +23,7 @@ namespace MHDataParser.FileFormats
         public HeightMapPrototype HeightMap { get; }
         public PrototypeGuid[] HotspotPrototypes { get; }
 
-        public CellPrototype(byte[] data)
+        public CellPrototype(byte[] data, bool useLegacyFormat)
         {
             using (MemoryStream stream = new(data))
             using (BinaryReader reader = new(stream))
@@ -33,10 +33,13 @@ namespace MHDataParser.FileFormats
                 Type = (Cell.Type)reader.ReadUInt32();
                 Walls = reader.ReadUInt32();
                 FillerEdges = (Cell.Filler)reader.ReadUInt32();
-                RoadConnections = (Cell.Type)reader.ReadUInt32();
+
+                if (useLegacyFormat == false)
+                    RoadConnections = (Cell.Type)reader.ReadUInt32();
+                
                 ClientMap = reader.ReadFixedString32();
-                InitializeSet = new(reader);
-                MarkerSet = new(reader);
+                InitializeSet = new(reader, useLegacyFormat);
+                MarkerSet = new(reader, useLegacyFormat);
                 NaviPatchSource = new(reader);
                 IsOffsetInMapFile = reader.ReadByte();
                 HeightMap = new(reader);
