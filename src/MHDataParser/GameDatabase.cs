@@ -321,8 +321,9 @@ namespace MHDataParser
 
                 using (StreamWriter sw = new(path))
                 {
-                    foreach (double value in CurveDict[record.FilePath].Values)
-                        sw.WriteLine(value);
+                    Curve curve = CurveDict[record.FilePath];
+                    for (int i = 0; i < curve.Values.Length; i++)
+                        sw.WriteLine($"{curve.StartPosition + i}\t{curve.Values[i]}");
                 }
             }
 
