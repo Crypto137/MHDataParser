@@ -45,13 +45,23 @@ namespace MHDataParser.CodeGeneration
 
             string baseClass;
             if (_parents.Count == 0)
+            {
                 baseClass = "Prototype";        // No parents (inherit from the base Prototype class)
+            }
             else if (_parents.Count == 1)
+            {
                 baseClass = _parents.First();   // Only a single parent, so we can be certain it's the one
+            }
+            else if (PrototypeParentLookupTable.TryGetParentForPrototype(Name, out string lookupParentName))
+            {
+                // We are using a hardcoded hierarchy lookup (e.g. entity hierarchy which stayed generally the same for all versions)
+                Console.WriteLine($"Resolving parent conflict using hardcoded lookup: {Name} => {lookupParentName}");
+                baseClass = lookupParentName;
+            }
             else
             {
                 // If we have multiple parents, we will default to Prototype, but list all potential parents as comments
-                Console.WriteLine($"{Name} has multiple potential parents:{_parents.Aggregate(string.Empty, (current, next) => $"{current} {next}")}");
+                Console.WriteLine($"Multiple potential parents for {Name}:{_parents.Aggregate(string.Empty, (current, next) => $"{current} {next}")}");
                 baseClass = "Prototype";
                 foreach (string parentName in _parents)
                     sb.AppendLine($"// {parentName}");
