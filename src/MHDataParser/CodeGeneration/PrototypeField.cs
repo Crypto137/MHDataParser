@@ -35,7 +35,13 @@ namespace MHDataParser.CodeGeneration
                     typeName = "Prototype";
                 }
                 else
+                {
                     typeName = blueprint.RuntimeBinding;
+
+                    // Replace mixin property prototypes with PropertyId
+                    if (typeName == "PropertyPrototype")
+                        typeName = "PropertyId";
+                }
             }
             else
             {
@@ -54,6 +60,13 @@ namespace MHDataParser.CodeGeneration
             }
 
             string typeSuffix = StructureType == CalligraphyStructureType.List ? "[]" : string.Empty;
+
+            // Special handling for property list (appears in ModPrototype only)
+            if (typeName == "PropertyId" && StructureType == CalligraphyStructureType.List)
+            {
+                typeName = "PrototypePropertyCollection";
+                typeSuffix = string.Empty;
+            }
 
             return $"public {typeName}{typeSuffix} {Name} {{ get; protected set; }}";
         }

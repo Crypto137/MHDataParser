@@ -59,9 +59,12 @@ namespace MHDataParser.CodeGeneration
 
             sb.AppendLine($@"public class {Name} : {baseClass}");
             sb.AppendLine("{");
-            // Sort fields for consistent output between versions so that we can more easily compare
-            foreach (PrototypeField field in _fieldDict.Values.OrderBy(field => field.Name))
-                sb.AppendLine($"\t{field.GenerateCode()}");
+            if (Name != "PropertyPrototype")    // Ignore property mixin fields
+            {
+                // Sort fields for consistent output between versions so that we can more easily compare
+                foreach (PrototypeField field in _fieldDict.Values.OrderBy(field => field.Name))
+                    sb.AppendLine($"\t{field.GenerateCode()}");
+            }
             sb.AppendLine("}");
 
             return sb.ToString();
