@@ -31,8 +31,9 @@ namespace MHDataParser.CodeGeneration
 
                 if (GameDatabase.BlueprintDict.TryGetValue(blueprintName, out Blueprint blueprint) == false)
                 {
-                    Console.WriteLine($"Invalid subtype {Subtype} for RHStruct field {Name} in {_prototypeClass.Name}, defaulting to Prototype");
-                    typeName = "Prototype";
+                    // HACK: This seems to be happening only for EvalPrototype fields, so we'll just fall back to it
+                    Console.WriteLine($"Invalid subtype {Subtype} for RHStruct field {Name} in {_prototypeClass.Name}, falling back to EvalPrototype");
+                    typeName = "EvalPrototype";
                 }
                 else
                 {
