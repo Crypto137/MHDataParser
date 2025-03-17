@@ -9,6 +9,8 @@ namespace MHDataParser.CodeGeneration
 
         private readonly HashSet<string> _parents = new();
 
+        private bool _hasPropertyMixin = false;
+
         public string Name { get; }
 
         public PrototypeClass(string name)
@@ -24,19 +26,28 @@ namespace MHDataParser.CodeGeneration
 
         public void AddParent(BlueprintId parentRef)
         {
-            if (GameDatabase.IsPropertyMixinBlueprint(parentRef) == false)
+            // If this is a property mixin reference, just flag this class and exit
+            if (GameDatabase.IsPropertyMixinBlueprint(parentRef))
             {
-                string parentName = GameDatabase.GetBlueprintName(parentRef);
-
-                if (GameDatabase.BlueprintDict.TryGetValue(parentName, out Blueprint parent) == false)
+                if (_hasPropertyMixin == false)
                 {
-                    Console.WriteLine($"Failed to find parent blueprint {parentName} for {Name}");
-                    return;
+                    Console.WriteLine($"Found property mixin in {Name}");
+                    _hasPropertyMixin = true;
                 }
 
-                if (parent.RuntimeBinding != Name && parent.RuntimeBinding != "Prototype")
-                    _parents.Add(parent.RuntimeBinding);
+                return;
             }
+
+            string parentName = GameDatabase.GetBlueprintName(parentRef);
+
+            if (GameDatabase.BlueprintDict.TryGetValue(parentName, out Blueprint parent) == false)
+            {
+                Console.WriteLine($"Failed to find parent blueprint {parentName} for {Name}");
+                return;
+            }
+
+            if (parent.RuntimeBinding != Name && parent.RuntimeBinding != "Prototype")
+                _parents.Add(parent.RuntimeBinding);
         }
 
         public string GenerateCode()
