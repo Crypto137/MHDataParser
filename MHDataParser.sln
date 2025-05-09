@@ -5,8 +5,6 @@ VisualStudioVersion = 17.7.34024.191
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MHDataParser", "src\MHDataParser\MHDataParser.csproj", "{29EF1753-A0D0-40D4-A680-0C148C9CC2CD}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SqliteGpakRepacker", "src\SqliteGpakRepacker\SqliteGpakRepacker.csproj", "{A49D09B9-963F-433D-BA11-AC33F5AF1D29}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +15,6 @@ Global
 		{29EF1753-A0D0-40D4-A680-0C148C9CC2CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29EF1753-A0D0-40D4-A680-0C148C9CC2CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29EF1753-A0D0-40D4-A680-0C148C9CC2CD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A49D09B9-963F-433D-BA11-AC33F5AF1D29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A49D09B9-963F-433D-BA11-AC33F5AF1D29}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A49D09B9-963F-433D-BA11-AC33F5AF1D29}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A49D09B9-963F-433D-BA11-AC33F5AF1D29}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
